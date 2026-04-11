@@ -46,6 +46,15 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        .modal-overlay {
+            transition: opacity 0.3s ease;
+        }
+        .modal-content {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .event-item {
+            transition: all 0.2s ease;
+        }
     </style>
 </head>
 <body class="font-sans bg-secondary text-gray-800">
@@ -109,7 +118,7 @@
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Walima</h3>
                         <p class="text-gray-600 text-sm mb-4">Elegant wedding reception planning with attention to every detail</p>
                         <p class="text-lg font-bold text-black mt-auto mb-4">Starting from Rs. 150,000</p>
-                        <button class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                        <button onclick="openBookingModal('Walima')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
                     </div>
                 </div>
 
@@ -119,7 +128,7 @@
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Mehendi</h3>
                         <p class="text-gray-600 text-sm mb-4">Traditional Mehendi ceremonies with beautiful decor and entertainment</p>
                         <p class="text-lg font-bold text-black mt-auto mb-4">Starting from Rs. 80,000</p>
-                        <button class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                        <button onclick="openBookingModal('Mehendi')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
                     </div>
                 </div>
 
@@ -129,7 +138,7 @@
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Birthdays</h3>
                         <p class="text-gray-600 text-sm mb-4">Unique birthday celebrations tailored to your preferences</p>
                         <p class="text-lg font-bold text-black mt-auto mb-4">Starting from Rs. 35,000</p>
-                        <button class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                        <button onclick="openBookingModal('Birthdays')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
                     </div>
                 </div>
 
@@ -139,7 +148,7 @@
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Concerts</h3>
                         <p class="text-gray-600 text-sm mb-4">Professional concert organization with excellent sound and lighting</p>
                         <p class="text-lg font-bold text-black mt-auto mb-4">Contact for Quote</p>
-                        <button class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                        <button onclick="openBookingModal('Concerts')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
                     </div>
                 </div>
 
@@ -149,7 +158,7 @@
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Photography</h3>
                         <p class="text-gray-600 text-sm mb-4">Professional event photography capturing precious moments</p>
                         <p class="text-lg font-bold text-black mt-auto mb-4">Starting from Rs. 25,000</p>
-                        <button class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                        <button onclick="openBookingModal('Photography')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
                     </div>
                 </div>
 
@@ -159,7 +168,7 @@
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Fireworks</h3>
                         <p class="text-gray-600 text-sm mb-4">Stunning fireworks displays for special grand occasions</p>
                         <p class="text-lg font-bold text-black mt-auto mb-4">Starting from Rs. 50,000</p>
-                        <button class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                        <button onclick="openBookingModal('Fireworks')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
                     </div>
                 </div>
             </div>
@@ -196,6 +205,56 @@
         </div>
     </footer>
 
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="fixed inset-0 z-50 hidden modal-overlay">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div class="modal-content bg-white rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold text-darkPink">Book Event</h2>
+                        <button onclick="closeBookingModal()" class="text-gray-500 hover:text-gray-700 text-2xl">
+                            &times;
+                        </button>
+                    </div>
+                    
+                    <form id="bookingForm" class="space-y-4">
+                        <div>
+                            <label class="block text-gray-700 mb-2 font-medium">Name</label>
+                            <input type="text" id="customerName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-darkPink focus:border-transparent" placeholder="Enter your name" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 mb-2 font-medium">Phone</label>
+                            <input type="tel" id="customerPhone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-darkPink focus:border-transparent" placeholder="Enter your phone number" required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 mb-2 font-medium">Address</label>
+                            <input type="text" id="customerAddress" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-darkPink focus:border-transparent" placeholder="Enter your address" required>
+                        </div>
+                        
+                        <div class="border-t border-gray-200 pt-4">
+                            <h3 class="text-lg font-semibold text-darkPink mb-3">Selected Events</h3>
+                            <div id="selectedEventsContainer" class="space-y-3">
+                                <!-- Event items will be added here dynamically -->
+                            </div>
+                            <button type="button" onclick="addMoreEvents()" class="mt-3 flex items-center text-darkPink hover:text-black">
+                                <i class="fas fa-plus-circle mr-2"></i> Add More Events
+                            </button>
+                        </div>
+                        
+                        <div class="pt-4">
+                            <button type="submit" class="w-full bg-darkPink hover:bg-black text-white font-semibold py-3 px-4 rounded-lg transition duration-300">
+                                Submit Booking
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         function scrollToSection(sectionId) {
             const element = document.getElementById(sectionId);
@@ -210,6 +269,118 @@
         
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+        });
+
+        // Booking modal functionality
+        let selectedEvents = [];
+        const bookingModal = document.getElementById('bookingModal');
+        const selectedEventsContainer = document.getElementById('selectedEventsContainer');
+
+        function openBookingModal(event) {
+            // Initialize with first event
+            selectedEvents = [{name: event}];
+            renderSelectedEvents();
+            
+            // Show modal
+            bookingModal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+            
+            // Animate modal in
+            setTimeout(() => {
+                bookingModal.querySelector('.modal-content').classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeBookingModal() {
+            // Animate modal out
+            bookingModal.querySelector('.modal-content').classList.remove('scale-100', 'opacity-100');
+            
+            setTimeout(() => {
+                bookingModal.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+                resetBookingForm();
+            }, 300);
+        }
+
+        function renderSelectedEvents() {
+            selectedEventsContainer.innerHTML = '';
+            
+            selectedEvents.forEach((event, index) => {
+                const eventElement = document.createElement('div');
+                eventElement.className = 'event-item bg-gray-50 p-4 rounded-lg flex justify-between items-center';
+                eventElement.innerHTML = `
+                    <div class="font-medium">${event.name}</div>
+                    <button type="button" onclick="removeEvent(${index})" class="text-red-500 hover:text-red-700">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+                selectedEventsContainer.appendChild(eventElement);
+            });
+        }
+
+        function addMoreEvents() {
+            // For demo purposes, we'll just add a sample event
+            // In a real app, this would show a dropdown or prompt
+            selectedEvents.push({name: 'New Event'});
+            renderSelectedEvents();
+        }
+
+        function removeEvent(index) {
+            selectedEvents.splice(index, 1);
+            renderSelectedEvents();
+        }
+
+        function resetBookingForm() {
+            document.getElementById('bookingForm').reset();
+            selectedEvents = [];
+            renderSelectedEvents();
+        }
+
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validation
+            const name = document.getElementById('customerName').value.trim();
+            const phone = document.getElementById('customerPhone').value.trim();
+            const address = document.getElementById('customerAddress').value.trim();
+            
+            if (!name || !phone || !address) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Prepare booking data
+            const bookingData = {
+                name,
+                phone,
+                address,
+                events: selectedEvents,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Save to localStorage
+            localStorage.setItem('bookingData', JSON.stringify(bookingData));
+            
+            // Show success
+            alert('Booking submitted successfully!');
+            console.log('Booking Data:', bookingData);
+            
+            // Reset form and close modal
+            closeBookingModal();
+        });
+
+        // Close modal when clicking outside
+        bookingModal.addEventListener('click', function(e) {
+            if (e.target === bookingModal) {
+                closeBookingModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !bookingModal.classList.contains('hidden')) {
+                closeBookingModal();
+            }
         });
     </script>
 </body>
