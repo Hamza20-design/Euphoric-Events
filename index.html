@@ -1,137 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EUPHORIC EVENTS - Event Planning in Karachi</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-
-<style>
-.hero-bg {
-background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),
-url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1600&q=80') no-repeat center/cover;
-}
-.service-card:hover {
-transform: translateY(-5px);
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EUPHORIC EVENTS - Event Planning in Karachi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ffffff',
+                        secondary: '#f5f5f5',
+                        accent: '#000000',
+                        darkPink: '#000000'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3') no-repeat center center/cover;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .nav-link:hover {
+            color: #000000;
+        }
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #000000;
+            transform: scale(1.05);
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
+<body class="font-sans bg-secondary text-gray-800">
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="https://www.instagram.com/euphoric_event_management?igsh=NmhnM29yZGljbGs2" alt="EUPHORIC EVENTS Logo" class="h-12 w-12 rounded-full object-cover border-2 border-primary">
+                <h1 class="text-2xl font-bold text-darkPink font-dancing-script">EUPHORIC EVENTS</h1>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <button onclick="scrollToSection('home')" class="nav-link font-medium hover:text-accent">Home</button>
+                <button onclick="scrollToSection('services')" class="nav-link font-medium hover:text-accent">Services</button>
+                <button onclick="scrollToSection('about')" class="nav-link font-medium hover:text-accent">About</button>
+            </nav>
+            
+            <button class="md:hidden text-gray-600 focus:outline-none" id="mobile-menu-button">
+                <div class="w-6 h-0.5 bg-darkPink mb-1"></div>
+                <div class="w-6 h-0.5 bg-darkPink mb-1"></div>
+                <div class="w-6 h-0.5 bg-darkPink"></div>
+            </button>
+        </div>
+        
+        <div class="md:hidden bg-white hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <button onclick="scrollToSection('home')" class="block px-3 py-2 rounded-md text-base font-medium text-darkPink hover:text-accent">Home</button>
+                <button onclick="scrollToSection('services')" class="block px-3 py-2 rounded-md text-base font-medium text-darkPink hover:text-accent">Services</button>
+                <button onclick="scrollToSection('about')" class="block px-3 py-2 rounded-md text-base font-medium text-darkPink hover:text-accent">About</button>
+            </div>
+        </div>
+    </header>
 
-<body class="bg-gray-100">
+    <section id="home" class="hero-bg min-h-screen flex items-center">
+        <div class="container mx-auto px-4 py-16 text-center">
+            <div class="animate-fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">Creating Unforgettable Moments</h1>
+                <p class="text-xl md:text-2xl mb-8 text-white max-w-3xl mx-auto opacity-90">Professional Event Planning Services in Karachi, Pakistan</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button onclick="scrollToSection('services')" class="btn-primary bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-200 transition duration-300 shadow-lg">
+                        Our Services
+                    </button>
+                    <button onclick="scrollToSection('about')" class="btn-primary bg-transparent text-white border-2 border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition duration-300">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- HERO -->
-<section class="hero-bg min-h-screen flex items-center justify-center text-center text-white">
-<div>
-<h1 class="text-5xl font-bold mb-4">EUPHORIC EVENTS</h1>
-<p class="mb-6">Creating Unforgettable Moments</p>
-</div>
-</section>
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-darkPink mb-4">Our Event Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">We specialize in creating memorable events that exceed expectations</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card bg-secondary rounded-xl overflow-hidden shadow-lg transition duration-300 flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80" alt="Walima" class="w-full h-48 object-cover">
+                    <div class="p-6 text-center flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Walima</h3>
+                        <p class="text-gray-600 text-sm mb-4">Elegant wedding reception planning with attention to every detail</p>
+                        <p class="text-lg font-bold text-black mt-auto mb-4">Starting from Rs. 150,000</p>
+                        <button class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                    </div>
+                </div>
 
-<!-- SERVICES -->
-<section class="py-16">
-<div class="grid md:grid-cols-3 gap-6 px-6">
+                <div class="service-card bg-secondary rounded-xl overflow-hidden shadow-lg transition duration-300 flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1595113340742-6f37a911f7f4?auto=format&fit=crop&w=600&q=80" alt="Mehendi" class="w-full h-48 object-cover">
+                    <div class="p-6 text-center flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Mehendi</h3>
+                        <p class="text-gray-600 text-sm mb-4">Traditional Mehendi ceremonies with beautiful decor and entertainment</p>
+                        <p class="text-lg font-bold text-black mt-auto mb-4">Starting from Rs. 80,000</p>
+                        <button class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                    </div>
+                </div>
 
-<div class="service-card bg-white p-4 rounded shadow">
-<h2 class="text-xl font-bold">Walima</h2>
-<p>Starting from Rs.150,000</p>
-<button onclick="openBooking('Walima')" class="mt-4 bg-black text-white px-4 py-2 rounded">Book Now</button>
-</div>
+                <div class="service-card bg-secondary rounded-xl overflow-hidden shadow-lg transition duration-300 flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1530103043960-ef38714abb15?auto=format&fit=crop&w=600&q=80" alt="Birthdays" class="w-full h-48 object-cover">
+                    <div class="p-6 text-center flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Birthdays</h3>
+                        <p class="text-gray-600 text-sm mb-4">Unique birthday celebrations tailored to your preferences</p>
+                        <p class="text-lg font-bold text-black mt-auto mb-4">Starting from Rs. 35,000</p>
+                        <button class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                    </div>
+                </div>
 
-<div class="service-card bg-white p-4 rounded shadow">
-<h2 class="text-xl font-bold">Mehendi</h2>
-<p>Starting from Rs.80,000</p>
-<button onclick="openBooking('Mehendi')" class="mt-4 bg-black text-white px-4 py-2 rounded">Book Now</button>
-</div>
+                <div class="service-card bg-secondary rounded-xl overflow-hidden shadow-lg transition duration-300 flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1459749411177-042180ce673c?auto=format&fit=crop&w=600&q=80" alt="Concerts" class="w-full h-48 object-cover">
+                    <div class="p-6 text-center flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Concerts</h3>
+                        <p class="text-gray-600 text-sm mb-4">Professional concert organization with excellent sound and lighting</p>
+                        <p class="text-lg font-bold text-black mt-auto mb-4">Contact for Quote</p>
+                        <button class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                    </div>
+                </div>
 
-<div class="service-card bg-white p-4 rounded shadow">
-<h2 class="text-xl font-bold">Birthdays</h2>
-<p>Starting from Rs.35,000</p>
-<button onclick="openBooking('Birthdays')" class="mt-4 bg-black text-white px-4 py-2 rounded">Book Now</button>
-</div>
+                <div class="service-card bg-secondary rounded-xl overflow-hidden shadow-lg transition duration-300 flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=600&q=80" alt="Photography" class="w-full h-48 object-cover">
+                    <div class="p-6 text-center flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Photography</h3>
+                        <p class="text-gray-600 text-sm mb-4">Professional event photography capturing precious moments</p>
+                        <p class="text-lg font-bold text-black mt-auto mb-4">Starting from Rs. 25,000</p>
+                        <button class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                    </div>
+                </div>
 
-</div>
-</section>
+                <div class="service-card bg-secondary rounded-xl overflow-hidden shadow-lg transition duration-300 flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1467810563316-b5476525c0f9?auto=format&fit=crop&w=600&q=80" alt="Fireworks" class="w-full h-48 object-cover">
+                    <div class="p-6 text-center flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Fireworks</h3>
+                        <p class="text-gray-600 text-sm mb-4">Stunning fireworks displays for special grand occasions</p>
+                        <p class="text-lg font-bold text-black mt-auto mb-4">Starting from Rs. 50,000</p>
+                        <button class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- POPUP -->
-<div id="bookingModal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center">
-<div class="bg-white p-6 rounded w-96 relative">
+    <section id="about" class="py-16 bg-secondary">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3" alt="Event Planning" class="rounded-xl shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-darkPink mb-6">About EUPHORIC EVENTS</h2>
+                    <p class="text-gray-600 mb-4">
+                        Established in the vibrant city of Karachi, Pakistan, EUPHORIC EVENTS is your premier destination for exceptional event planning services. With a passion for creating magical moments, we bring creativity and professionalism to every celebration.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        Our team of experienced planners understands the importance of every detail that goes into making your special day unforgettable. Whether it's a grand wedding, a joyful birthday party, or a corporate event, we ensure perfection in every aspect.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<h2 class="text-xl font-bold mb-4">Book Event</h2>
+    <footer class="bg-black py-8">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-2xl font-bold text-white mb-2 font-dancing-script">EUPHORIC EVENTS</h3>
+            <p class="text-white mb-4">Creating Unforgettable Moments in Karachi, Pakistan</p>
+            <p class="text-white text-sm">Phone: +92 335 0356992</p>
+            <div class="mt-6 pt-6 border-t border-white border-opacity-30">
+                <p class="text-white text-sm">&copy; 2026 EUPHORIC EVENTS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-<input id="name" placeholder="Name" class="w-full border p-2 mb-2">
-<input id="phone" placeholder="Phone" class="w-full border p-2 mb-2">
-<input id="address" placeholder="Address" class="w-full border p-2 mb-4">
-
-<div id="servicesList"></div>
-
-<button onclick="addMore()" class="bg-gray-200 px-3 py-1 mb-3">+ Add More</button>
-
-<button onclick="submitOrder()" class="w-full bg-black text-white py-2 rounded">Submit</button>
-
-<button onclick="closeModal()" class="absolute top-2 right-3 text-xl">×</button>
-
-</div>
-</div>
-
-<script>
-let services = [];
-
-function openBooking(service){
-services = [service];
-renderServices();
-document.getElementById("bookingModal").classList.remove("hidden");
-document.getElementById("bookingModal").classList.add("flex");
-}
-
-function closeModal(){
-document.getElementById("bookingModal").classList.add("hidden");
-}
-
-function renderServices(){
-let container = document.getElementById("servicesList");
-container.innerHTML = "";
-
-services.forEach((s,i)=>{
-container.innerHTML += `
-<div class="flex justify-between items-center mb-2">
-<span>${s}</span>
-<button onclick="removeService(${i})" class="text-red-500">Remove</button>
-</div>
-`;
-});
-}
-
-function addMore(){
-let newService = prompt("Enter service name:");
-if(newService){
-services.push(newService);
-renderServices();
-}
-}
-
-function removeService(index){
-services.splice(index,1);
-renderServices();
-}
-
-function submitOrder(){
-let name = document.getElementById("name").value;
-let phone = document.getElementById("phone").value;
-let address = document.getElementById("address").value;
-
-if(!name || !phone || !address){
-alert("Please fill all fields");
-return;
-}
-
-let message = `New Order:%0AName: ${name}%0APhone: ${phone}%0AAddress: ${address}%0AServices: ${services.join(", ")}`;
-
-window.open(`https://wa.me/923350356992?text=${message}`);
-
-closeModal();
-}
-</script>
-
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
