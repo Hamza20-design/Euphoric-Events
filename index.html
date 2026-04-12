@@ -207,6 +207,39 @@
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
+        .package-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .package-card.selected {
+            border-color: #000000;
+            background-color: #f5f5f5;
+        }
+        .package-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .features-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .features-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+        }
+        .features-list li:before {
+            content: "✓";
+            color: #22c55e;
+            font-weight: bold;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
     </style>
 </head>
 <body class="font-sans bg-secondary text-gray-800">
@@ -270,7 +303,7 @@
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Walima</h3>
                         <p class="text-gray-600 text-sm mb-4">Elegant wedding reception planning with attention to every detail</p>
                         <p class="text-lg font-bold text-black mt-auto mb-4">Rs. 1,850/person</p>
-                        <button onclick="openBookingModal('Walima')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                        <button onclick="openPackageModal('Walima')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
                     </div>
                 </div>
 
@@ -280,7 +313,7 @@
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Mehendi</h3>
                         <p class="text-gray-600 text-sm mb-4">Traditional Mehendi ceremonies with beautiful decor and entertainment</p>
                         <p class="text-lg font-bold text-black mt-auto mb-4">Starting from Rs. 80,000</p>
-                        <button onclick="openBookingModal('Mehendi')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                        <button onclick="openPackageModal('Mehendi')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
                     </div>
                 </div>
 
@@ -290,7 +323,7 @@
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Birthdays</h3>
                         <p class="text-gray-600 text-sm mb-4">Unique birthday celebrations tailored to your preferences</p>
                         <p class="text-lg font-bold text-black mt-auto mb-4">Starting from Rs. 35,000</p>
-                        <button onclick="openBookingModal('Birthdays')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                        <button onclick="openPackageModal('Birthdays')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
                     </div>
                 </div>
 
@@ -327,7 +360,144 @@
         </div>
     </section>
 
-    <section id="about" class="py-16 bg-secondary">
+    <section id="catering-setup" class="py-16 bg-secondary">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-darkPink mb-4">Catering & Setup</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Premium catering and setup services to make your event perfect</p>
+            </div>
+            
+            <!-- Prominent Note -->
+            <div class="bg-yellow-100 border-l-4 border-yellow-500 p-4 mb-8 rounded">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-exclamation-triangle text-yellow-500 h-5 w-5"></i>
+                    </div>
+                    <div class="ml-3">
+                        <p class="text-sm text-yellow-700">
+                            <strong>Note:</strong> All the above catering and setup services are included in all our event packages at no extra cost!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition duration-300 flex flex-col items-center text-center">
+                    <div class="bg-darkPink text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                        <i class="fas fa-utensils text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-darkPink">Dera with Carpet</h3>
+                    <p class="text-gray-600">Elegant dera setup with premium carpet for comfortable seating</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition duration-300 flex flex-col items-center text-center">
+                    <div class="bg-darkPink text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                        <i class="fas fa-couch text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-darkPink">Sofa Sitting</h3>
+                    <p class="text-gray-600">Comfortable sofa arrangement for relaxed seating during events</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition duration-300 flex flex-col items-center text-center">
+                    <div class="bg-darkPink text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                        <i class="fas fa-table text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-darkPink">Round Table Sitting</h3>
+                    <p class="text-gray-600">Round table arrangements for intimate dining experiences</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition duration-300 flex flex-col items-center text-center">
+                    <div class="bg-darkPink text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                        <i class="fas fa-utensil-spoon text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-darkPink">Standing Buffet</h3>
+                    <p class="text-gray-600">Elegant standing buffet service for seamless food presentation</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition duration-300 flex flex-col items-center text-center">
+                    <div class="bg-darkPink text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                        <i class="fas fa-plate-wheat text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-darkPink">Ceramic Cutlery & Crockery</h3>
+                    <p class="text-gray-600">Premium ceramic cutlery and crockery for sophisticated dining</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition duration-300 flex flex-col items-center text-center">
+                    <div class="bg-darkPink text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                        <i class="fas fa-concierge-bell text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-darkPink">Waiter Services</h3>
+                    <p class="text-gray-600">Professional waiter services to enhance your guest experience</p>
+                </div>
+            </div>
+            
+            <!-- Packages Section -->
+            <div class="mt-16">
+                <h2 class="text-3xl font-bold text-darkPink mb-8 text-center">Catering Packages</h2>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="p-6 border-b border-gray-200">
+                        <h3 class="text-xl font-bold text-darkPink mb-4">Basic Package</h3>
+                        <ul class="features-list">
+                            <li>Hot & Sour Soup</li>
+                            <li>Fish Crackers</li>
+                            <li>Chicken Qorma</li>
+                            <li>Chicken Hydrabadi Biryan</li>
+                            <li>Gajar Halwa special</li>
+                            <li>3 Types of Salads</li>
+                            <li>Mint Raita</li>
+                            <li>Assorted Live Naan</li>
+                            <li>Mineral Water 1.5 ml</li>
+                            <li>Coke-Sprite 1.5 ml</li>
+                            <li>Tea-Coffee Live Machine</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden mt-6">
+                    <div class="p-6 border-b border-gray-200">
+                        <h3 class="text-xl font-bold text-darkPink mb-4">Standard Package</h3>
+                        <ul class="features-list">
+                            <li>Hot & Sour Soup</li>
+                            <li>Fish Crackers</li>
+                            <li>Mutton Qorma</li>
+                            <li>Chicken Hydrabadi Biryan</li>
+                            <li>Gajar Halwa special</li>
+                            <li>3 Types of Salads</li>
+                            <li>Mint Raita</li>
+                            <li>Assorted Live Naan</li>
+                            <li>Mineral Water 1.5 ml</li>
+                            <li>Coke-Sprite 1.5 ml</li>
+                            <li>Tea-Coffee Live Machine</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden mt-6">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-darkPink mb-4">Premium Package</h3>
+                        <ul class="features-list">
+                            <li>Hot & Sour Soup</li>
+                            <li>Fish Crackers</li>
+                            <li>Mutton Qorma</li>
+                            <li>Chicken Hydrabadi Biryan</li>
+                            <li>Chicken Malai Boti</li>
+                            <li>Beef Kabab Live</li>
+                            <li>Gajar/Petha Halwa special</li>
+                            <li>4 Types of Salads</li>
+                            <li>Mint Raita</li>
+                            <li>Assorted Live Naan</li>
+                            <li>Mineral Water 1.5 ml</li>
+                            <li>Coke-Sprite 1.5 ml</li>
+                            <li>Tea-Coffee Live Machine</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
@@ -392,6 +562,33 @@
     <button onclick="openWhatsApp()" class="whatsapp-float" title="Chat with us on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </button>
+
+    <!-- Package Selection Modal -->
+    <div id="packageModal" class="fixed inset-0 z-50 hidden modal-overlay">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div class="modal-content bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold text-darkPink">Select Package</h2>
+                        <button onclick="closePackageModal()" class="text-gray-500 hover:text-gray-700 text-2xl close-btn">
+                            &times;
+                        </button>
+                    </div>
+                    
+                    <div id="packageContainer" class="mb-6">
+                        <!-- Packages will be loaded here -->
+                    </div>
+                    
+                    <div class="mt-6 text-center">
+                        <button onclick="proceedToCheckout()" id="continueButton" class="bg-darkPink hover:bg-black text-white font-semibold py-3 px-6 rounded-lg transition duration-300 disabled:opacity-50" disabled>
+                            Continue to Checkout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Booking Modal -->
     <div id="bookingModal" class="fixed inset-0 z-50 hidden modal-overlay">
@@ -470,15 +667,163 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Booking modal functionality
+        // Package Modal functionality
+        const packageModal = document.getElementById('packageModal');
+        const packageContainer = document.getElementById('packageContainer');
+        const continueButton = document.getElementById('continueButton');
+        let selectedEvent = '';
+        let selectedPackage = null;
+
+        // Package data
+        const packagesData = {
+            'Walima': [
+                {
+                    id: 'basic',
+                    name: 'Basic Package',
+                    price: 'Rs. 1,850/person',
+                    description: 'Includes basic setup and decoration for 50 guests',
+                    features: ['Basic Decoration', 'Lighting', 'Basic Catering', 'Audio System']
+                },
+                {
+                    id: 'standard',
+                    name: 'Standard Package',
+                    price: 'Rs. 2,250/person',
+                    description: 'Enhanced setup with premium amenities for 100 guests',
+                    features: ['Premium Decoration', 'Special Lighting', 'Deluxe Catering', 'Audio/Visual System', 'Photographer']
+                },
+                {
+                    id: 'premium',
+                    name: 'Premium Package',
+                    price: 'Rs. 2,850/person',
+                    description: 'Luxurious experience with complete amenities for 150 guests',
+                    features: ['Luxury Decoration', 'Premium Lighting', 'Five-Star Catering', 'Professional AV System', 'Professional Photographer', 'Floral Arrangements', 'Special Entertainment']
+                }
+            ],
+            'Mehendi': [
+                {
+                    id: 'basic',
+                    name: 'Basic Package',
+                    price: 'Rs. 80,000',
+                    description: 'Traditional Mehendi ceremony with basic setup',
+                    features: ['Basic Decoration', 'Lighting', 'Traditional Music', 'Tea & Coffee']
+                },
+                {
+                    id: 'standard',
+                    name: 'Standard Package',
+                    price: 'Rs. 120,000',
+                    description: 'Enhanced Mehendi with premium decorations and entertainment',
+                    features: ['Premium Decoration', 'Special Lighting', 'Professional Entertainment', 'Snacks & Drinks', 'Photographer']
+                },
+                {
+                    id: 'premium',
+                    name: 'Premium Package',
+                    price: 'Rs. 180,000',
+                    description: 'Luxury Mehendi with all premium amenities and services',
+                    features: ['Luxury Decoration', 'Premium Lighting', 'Professional DJ', 'Premium Snacks & Beverages', 'Professional Photographer', 'Sweets & Desserts', 'Special Entertainment']
+                }
+            ],
+            'Birthdays': [
+                {
+                    id: 'basic',
+                    name: 'Basic Package',
+                    price: 'Rs. 35,000',
+                    description: 'Simple birthday celebration with essential decorations',
+                    features: ['Basic Decoration', 'Lighting', 'Cake & Refreshments', 'Music System']
+                },
+                {
+                    id: 'standard',
+                    name: 'Standard Package',
+                    price: 'Rs. 60,000',
+                    description: 'Fun-filled birthday with enhanced decorations and entertainment',
+                    features: ['Premium Decoration', 'Special Lighting', 'Cake & Special Refreshments', 'Professional Music', 'Photographer']
+                },
+                {
+                    id: 'premium',
+                    name: 'Premium Package',
+                    price: 'Rs. 100,000',
+                    description: 'Memorable birthday with luxury details and premium services',
+                    features: ['Luxury Decoration', 'Premium Lighting', 'Deluxe Cake & Refreshments', 'Professional DJ', 'Professional Photographer', 'Special Entertainment', 'Gifts & Prizes']
+                }
+            ]
+        };
+
+        function openPackageModal(eventType) {
+            selectedEvent = eventType;
+            const packages = packagesData[eventType];
+            
+            let html = `<h3 class="text-xl font-bold text-darkPink mb-4">${eventType} Packages</h3>`;
+            
+            packages.forEach(pkg => {
+                html += `
+                    <div class="package-card mb-4 p-4 border rounded-lg" onclick="selectPackage('${pkg.id}', '${pkg.name}', '${pkg.price}')">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">${pkg.name}</h4>
+                                <p class="text-darkPink package-price">${pkg.price}</p>
+                                <p class="text-gray-600 text-sm mt-2">${pkg.description}</p>
+                            </div>
+                            <i class="fas fa-check-circle text-green-500 text-2xl hidden" id="check-${pkg.id}"></i>
+                        </div>
+                        <ul class="mt-3 space-y-1">
+                            ${pkg.features.map(feature => `<li class="text-sm"><i class="fas fa-check-circle text-green-500 mr-2"></i>${feature}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            });
+            
+            packageContainer.innerHTML = html;
+            packageModal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function selectPackage(id, name, price) {
+            // Remove selected class from all cards
+            document.querySelectorAll('.package-card').forEach(card => {
+                card.classList.remove('selected');
+                const checkIcon = card.querySelector(`#check-${id}`);
+                if (checkIcon) {
+                    checkIcon.classList.add('hidden');
+                }
+            });
+            
+            // Add selected class to clicked card
+            const card = document.querySelector(`.package-card:nth-child(${Array.from(document.querySelectorAll('.package-card')).findIndex(el => el.querySelector('h4').textContent === name) + 1})`);
+            card.classList.add('selected');
+            const checkIcon = card.querySelector(`#check-${id}`);
+            if (checkIcon) {
+                checkIcon.classList.remove('hidden');
+            }
+            
+            selectedPackage = { id, name, price };
+            continueButton.disabled = false;
+        }
+
+        function closePackageModal() {
+            packageModal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+            selectedPackage = null;
+            continueButton.disabled = true;
+        }
+
+        function proceedToCheckout() {
+            if (!selectedPackage) {
+                alert('Please select a package');
+                return;
+            }
+            
+            closePackageModal();
+            openBookingModal(selectedEvent, selectedPackage);
+        }
+
+        // Booking modal functionality - updated to accept package info
         let selectedEvents = [];
         const bookingModal = document.getElementById('bookingModal');
         const selectedEventsContainer = document.getElementById('selectedEventsContainer');
         const eventDropdown = document.getElementById('eventDropdown');
 
-        function openBookingModal(event) {
+        function openBookingModal(event, pkg = null) {
             // Initialize with first event
-            selectedEvents = [{name: event}];
+            selectedEvents = [{name: event, package: pkg}];
             renderSelectedEvents();
             
             // Show modal
@@ -510,6 +855,7 @@
                 eventElement.className = 'event-item bg-gray-50 p-4 rounded-lg flex justify-between items-center';
                 eventElement.innerHTML = `
                     <div class="font-medium">${event.name}</div>
+                    ${event.package ? `<div class="text-sm text-gray-600">${event.package.name}</div>` : ''}
                     <button type="button" onclick="removeEvent(${index})" class="text-red-500 hover:text-red-700">
                         <i class="fas fa-trash"></i>
                     </button>
@@ -578,16 +924,16 @@
         });
 
         // Close modal when clicking outside
-        bookingModal.addEventListener('click', function(e) {
-            if (e.target === bookingModal) {
-                closeBookingModal();
+        packageModal.addEventListener('click', function(e) {
+            if (e.target === packageModal) {
+                closePackageModal();
             }
         });
 
         // Close modal with Escape key
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && !bookingModal.classList.contains('hidden')) {
-                closeBookingModal();
+            if (e.key === 'Escape' && !packageModal.classList.contains('hidden')) {
+                closePackageModal();
             }
         });
 
@@ -595,6 +941,13 @@
         document.addEventListener('click', function(event) {
             if (!event.target.closest('.event-dropdown')) {
                 eventDropdown.classList.remove('show');
+            }
+        });
+
+        // Close package modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !bookingModal.classList.contains('hidden')) {
+                closeBookingModal();
             }
         });
 
