@@ -55,6 +55,158 @@
         .event-item {
             transition: all 0.2s ease;
         }
+        .event-dropdown {
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            animation: slideDown 0.3s ease;
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .dropdown-content.show {
+            display: block;
+        }
+        .dropdown-option {
+            padding: 12px 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .dropdown-option:hover {
+            background-color: #f5f5f5;
+        }
+        /* Black and White Theme for Add Events Popup */
+        .black-white-modal {
+            background-color: #000;
+            color: #fff;
+        }
+        .black-white-modal .modal-content {
+            background-color: #fff;
+            color: #000;
+        }
+        .black-white-modal .modal-content h2,
+        .black-white-modal .modal-content label,
+        .black-white-modal .modal-content .font-medium,
+        .black-white-modal .modal-content .text-darkPink {
+            color: #000;
+        }
+        .black-white-modal .modal-content input,
+        .black-white-modal .modal-content textarea,
+        .black-white-modal .modal-content select,
+        .black-white-modal .modal-content .border-gray-300 {
+            border-color: #000;
+            background-color: #fff;
+            color: #000;
+        }
+        .black-white-modal .dropdown-option,
+        .black-white-modal .dropdown-option:hover {
+            background-color: #fff;
+            color: #000;
+            border-bottom: 1px solid #eee;
+        }
+        .black-white-modal .dropdown-option:last-child {
+            border-bottom: none;
+        }
+        .black-white-modal .event-item {
+            background-color: #f5f5f5;
+        }
+        .black-white-modal .event-item button {
+            color: #000;
+        }
+        .black-white-modal .event-item button:hover {
+            color: #333;
+        }
+        .black-white-modal .btn-primary {
+            background-color: #000;
+            color: #fff;
+        }
+        .black-white-modal .btn-primary:hover {
+            background-color: #333;
+        }
+        .black-white-modal .modal-content .close-btn {
+            color: #000;
+        }
+        .black-white-modal .modal-content .close-btn:hover {
+            color: #333;
+        }
+        .shortcuts-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .shortcut-item {
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e5e5e5;
+        }
+        .shortcut-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            border-color: #cccccc;
+        }
+        .shortcut-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #000000;
+        }
+        .shortcut-title {
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 0.25rem;
+        }
+        .shortcut-desc {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            animation: float 3s ease-in-out infinite;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+        }
+        .whatsapp-float i {
+            font-size: 28px;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-float:hover i {
+            transform: scale(1.1);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
     </style>
 </head>
 <body class="font-sans bg-secondary text-gray-800">
@@ -113,17 +265,17 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="service-card bg-secondary rounded-xl overflow-hidden shadow-lg transition duration-300 flex flex-col">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80" alt="Walima" class="w-full h-48 object-cover">
+                    <img src="walima.jpg" alt="Walima" class="w-full h-48 object-cover">
                     <div class="p-6 text-center flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Walima</h3>
                         <p class="text-gray-600 text-sm mb-4">Elegant wedding reception planning with attention to every detail</p>
-                        <p class="text-lg font-bold text-black mt-auto mb-4">Starting from Rs. 150,000</p>
+                        <p class="text-lg font-bold text-black mt-auto mb-4">Rs. 1,850/person</p>
                         <button onclick="openBookingModal('Walima')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
                     </div>
                 </div>
 
                 <div class="service-card bg-secondary rounded-xl overflow-hidden shadow-lg transition duration-300 flex flex-col">
-                    <img src="https://images.unsplash.com/photo-1595113340742-6f37a911f7f4?auto=format&fit=crop&w=600&q=80" alt="Mehendi" class="w-full h-48 object-cover">
+                    <img src="mehendi.jpg" alt="Mehendi" class="w-full h-48 object-cover">
                     <div class="p-6 text-center flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Mehendi</h3>
                         <p class="text-gray-600 text-sm mb-4">Traditional Mehendi ceremonies with beautiful decor and entertainment</p>
@@ -133,7 +285,7 @@
                 </div>
 
                 <div class="service-card bg-secondary rounded-xl overflow-hidden shadow-lg transition duration-300 flex flex-col">
-                    <img src="https://images.unsplash.com/photo-1530103043960-ef38714abb15?auto=format&fit=crop&w=600&q=80" alt="Birthdays" class="w-full h-48 object-cover">
+                    <img src="birthday.jpg" alt="Birthdays" class="w-full h-48 object-cover">
                     <div class="p-6 text-center flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Birthdays</h3>
                         <p class="text-gray-600 text-sm mb-4">Unique birthday celebrations tailored to your preferences</p>
@@ -143,7 +295,7 @@
                 </div>
 
                 <div class="service-card bg-secondary rounded-xl overflow-hidden shadow-lg transition duration-300 flex flex-col">
-                    <img src="https://images.unsplash.com/photo-1459749411177-042180ce673c?auto=format&fit=crop&w=600&q=80" alt="Concerts" class="w-full h-48 object-cover">
+                    <img src="concert.jpg" alt="Concerts" class="w-full h-48 object-cover">
                     <div class="p-6 text-center flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Concerts</h3>
                         <p class="text-gray-600 text-sm mb-4">Professional concert organization with excellent sound and lighting</p>
@@ -153,7 +305,7 @@
                 </div>
 
                 <div class="service-card bg-secondary rounded-xl overflow-hidden shadow-lg transition duration-300 flex flex-col">
-                    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=600&q=80" alt="Photography" class="w-full h-48 object-cover">
+                    <img src="photography.jpg" alt="Photography" class="w-full h-48 object-cover">
                     <div class="p-6 text-center flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Photography</h3>
                         <p class="text-gray-600 text-sm mb-4">Professional event photography capturing precious moments</p>
@@ -163,7 +315,7 @@
                 </div>
 
                 <div class="service-card bg-secondary rounded-xl overflow-hidden shadow-lg transition duration-300 flex flex-col">
-                    <img src="https://images.unsplash.com/photo-1467810563316-b5476525c0f9?auto=format&fit=crop&w=600&q=80" alt="Fireworks" class="w-full h-48 object-cover">
+                    <img src="fireworks.jpg" alt="Fireworks" class="w-full h-48 object-cover">
                     <div class="p-6 text-center flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Fireworks</h3>
                         <p class="text-gray-600 text-sm mb-4">Stunning fireworks displays for special grand occasions</p>
@@ -189,6 +341,37 @@
                     <p class="text-gray-600 mb-4">
                         Our team of experienced planners understands the importance of every detail that goes into making your special day unforgettable. Whether it's a grand wedding, a joyful birthday party, or a corporate event, we ensure perfection in every aspect.
                     </p>
+                    
+                    <div class="shortcuts-container">
+                        <div class="shortcut-item">
+                            <div class="shortcut-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="shortcut-title">Wedding Planning</div>
+                            <div class="shortcut-desc">Complete wedding package</div>
+                        </div>
+                        <div class="shortcut-item">
+                            <div class="shortcut-icon">
+                                <i class="fas fa-birthday-cake"></i>
+                            </div>
+                            <div class="shortcut-title">Birthday Parties</div>
+                            <div class="shortcut-desc">Fun & memorable events</div>
+                        </div>
+                        <div class="shortcut-item">
+                            <div class="shortcut-icon">
+                                <i class="fas fa-microphone-alt"></i>
+                            </div>
+                            <div class="shortcut-title">Corporate Events</div>
+                            <div class="shortcut-desc">Professional celebrations</div>
+                        </div>
+                        <div class="shortcut-item">
+                            <div class="shortcut-icon">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                            <div class="shortcut-title">Photo Coverage</div>
+                            <div class="shortcut-desc">Capturing your moments</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -205,6 +388,11 @@
         </div>
     </footer>
 
+    <!-- Floating WhatsApp Button -->
+    <button onclick="openWhatsApp()" class="whatsapp-float" title="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </button>
+
     <!-- Booking Modal -->
     <div id="bookingModal" class="fixed inset-0 z-50 hidden modal-overlay">
         <div class="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -213,7 +401,7 @@
                 <div class="p-6">
                     <div class="flex justify-between items-center mb-6">
                         <h2 class="text-2xl font-bold text-darkPink">Book Event</h2>
-                        <button onclick="closeBookingModal()" class="text-gray-500 hover:text-gray-700 text-2xl">
+                        <button onclick="closeBookingModal()" class="text-gray-500 hover:text-gray-700 text-2xl close-btn">
                             &times;
                         </button>
                     </div>
@@ -231,7 +419,7 @@
                         
                         <div>
                             <label class="block text-gray-700 mb-2 font-medium">Address</label>
-                            <input type="text" id="customerAddress" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-darkPink focus:border-transparent" placeholder="Enter your address" required>
+                            <textarea id="customerAddress" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-darkPink focus:border-transparent" placeholder="Enter your address" rows="3" required></textarea>
                         </div>
                         
                         <div class="border-t border-gray-200 pt-4">
@@ -239,9 +427,20 @@
                             <div id="selectedEventsContainer" class="space-y-3">
                                 <!-- Event items will be added here dynamically -->
                             </div>
-                            <button type="button" onclick="addMoreEvents()" class="mt-3 flex items-center text-darkPink hover:text-black">
-                                <i class="fas fa-plus-circle mr-2"></i> Add More Events
-                            </button>
+                            <div class="mt-3 relative event-dropdown">
+                                <button type="button" onclick="toggleEventDropdown()" class="flex items-center text-darkPink hover:text-black w-full justify-between">
+                                    <span>Add More Events</span>
+                                    <i class="fas fa-chevron-down ml-2"></i>
+                                </button>
+                                <div id="eventDropdown" class="dropdown-content">
+                                    <div class="dropdown-option" onclick="addEvent('Walima')">Walima</div>
+                                    <div class="dropdown-option" onclick="addEvent('Mehendi')">Mehendi</div>
+                                    <div class="dropdown-option" onclick="addEvent('Birthdays')">Birthdays</div>
+                                    <div class="dropdown-option" onclick="addEvent('Concerts')">Concerts</div>
+                                    <div class="dropdown-option" onclick="addEvent('Photography')">Photography</div>
+                                    <div class="dropdown-option" onclick="addEvent('Fireworks')">Fireworks</div>
+                                </div>
+                            </div>
                         </div>
                         
                         <div class="pt-4">
@@ -275,6 +474,7 @@
         let selectedEvents = [];
         const bookingModal = document.getElementById('bookingModal');
         const selectedEventsContainer = document.getElementById('selectedEventsContainer');
+        const eventDropdown = document.getElementById('eventDropdown');
 
         function openBookingModal(event) {
             // Initialize with first event
@@ -318,11 +518,19 @@
             });
         }
 
-        function addMoreEvents() {
-            // For demo purposes, we'll just add a sample event
-            // In a real app, this would show a dropdown or prompt
-            selectedEvents.push({name: 'New Event'});
-            renderSelectedEvents();
+        function toggleEventDropdown() {
+            eventDropdown.classList.toggle('show');
+        }
+
+        function addEvent(eventName) {
+            // Check if event is already selected
+            const exists = selectedEvents.some(event => event.name === eventName);
+            if (!exists) {
+                selectedEvents.push({name: eventName});
+                renderSelectedEvents();
+            }
+            // Hide dropdown after selecting
+            eventDropdown.classList.remove('show');
         }
 
         function removeEvent(index) {
@@ -382,6 +590,21 @@
                 closeBookingModal();
             }
         });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.event-dropdown')) {
+                eventDropdown.classList.remove('show');
+            }
+        });
+
+        // WhatsApp button functionality
+        function openWhatsApp() {
+            const phoneNumber = "923350356992";
+            const message = "Hello! I would like to know more about your event planning services.";
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
     </script>
 </body>
-</html>
+</html>3
