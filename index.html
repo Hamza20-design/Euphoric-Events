@@ -615,14 +615,14 @@
                 {
                     id: 'standard',
                     name: 'Standard Package',
-                    price: 'Rs. 2,850/person',
+                    price: 'Rs. 2,250/person',
                     description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Mutton Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Gajar Halwa Special</li><li>3 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>',
                     features: ['Premium Decoration', 'Special Lighting', 'Deluxe Catering', 'Audio/Visual System', 'Photographer']
                 },
                 {
                     id: 'premium',
                     name: 'Premium Package',
-                    price: 'Rs. 3,450/person',
+                    price: 'Rs. 2,850/person',
                     description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Mutton Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Chicken Malai Boti</li><li>Beef Kabab Live</li><li>Gajar / Petha Halwa Special</li><li>4 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>✓Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>',
                     features: ['Luxury Decoration', 'Premium Lighting', 'Five-Star Catering', 'Professional AV System', 'Professional Photographer', 'Floral Arrangements', 'Special Entertainment']
                 }
@@ -693,7 +693,7 @@
                             <i class="fas fa-check-circle text-green-500 text-2xl hidden" id="check-${pkg.id}"></i>
                         </div>
                         <ul class="mt-3 space-y-1">
-                            ${pkg.features.map(feature => `<li class="text-sm"><i class="fas fa-check-circle text-green-500 mr-2"></i>${feature}</li>`).join('')}
+                            ${pkg.features.map(feature => `<li class="text-sm">${feature}</li>`).join('')}
                         </ul>
                     </div>
                 `;
