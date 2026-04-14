@@ -29,42 +29,24 @@
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
-        .nav-link:hover {
-            color: #000000;
-        }
-        .btn-primary {
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            background-color: #000000;
-            transform: scale(1.05);
-        }
-        .animate-fade-in {
-            animation: fadeIn 1s ease-in;
-        }
+        .nav-link:hover { color: #000000; }
+        .btn-primary { transition: all 0.3s ease; }
+        .btn-primary:hover { background-color: #000000; transform: scale(1.05); }
+        .animate-fade-in { animation: fadeIn 1s ease-in; }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .modal-overlay {
-            transition: opacity 0.3s ease;
-        }
-        .modal-content {
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-        .event-item {
-            transition: all 0.2s ease;
-        }
-        .event-dropdown {
-            position: relative;
-        }
+        .modal-overlay { transition: opacity 0.3s ease; }
+        .modal-content { transition: transform 0.3s ease, opacity 0.3s ease; }
+        .event-dropdown { position: relative; }
         .dropdown-content {
             display: none;
             position: absolute;
             background-color: white;
             min-width: 200px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
+            z-index: 60;
             border-radius: 0.5rem;
             overflow: hidden;
             animation: slideDown 0.3s ease;
@@ -73,71 +55,13 @@
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .dropdown-content.show {
-            display: block;
-        }
+        .dropdown-content.show { display: block; }
         .dropdown-option {
             padding: 12px 16px;
             cursor: pointer;
             transition: background-color 0.2s;
         }
-        .dropdown-option:hover {
-            background-color: #f5f5f5;
-        }
-        /* Black and White Theme for Add Events Popup */
-        .black-white-modal {
-            background-color: #000;
-            color: #fff;
-        }
-        .black-white-modal .modal-content {
-            background-color: #fff;
-            color: #000;
-        }
-        .black-white-modal .modal-content h2,
-        .black-white-modal .modal-content label,
-        .black-white-modal .modal-content .font-medium,
-        .black-white-modal .modal-content .text-darkPink {
-            color: #000;
-        }
-        .black-white-modal .modal-content input,
-        .black-white-modal .modal-content textarea,
-        .black-white-modal .modal-content select,
-        .black-white-modal .modal-content .border-gray-300 {
-            border-color: #000;
-            background-color: #fff;
-            color: #000;
-        }
-        .black-white-modal .dropdown-option,
-        .black-white-modal .dropdown-option:hover {
-            background-color: #fff;
-            color: #000;
-            border-bottom: 1px solid #eee;
-        }
-        .black-white-modal .dropdown-option:last-child {
-            border-bottom: none;
-        }
-        .black-white-modal .event-item {
-            background-color: #f5f5f5;
-        }
-        .black-white-modal .event-item button {
-            color: #000;
-        }
-        .black-white-modal .event-item button:hover {
-            color: #333;
-        }
-        .black-white-modal .btn-primary {
-            background-color: #000;
-            color: #fff;
-        }
-        .black-white-modal .btn-primary:hover {
-            background-color: #333;
-        }
-        .black-white-modal .modal-content .close-btn {
-            color: #000;
-        }
-        .black-white-modal .modal-content .close-btn:hover {
-            color: #333;
-        }
+        .dropdown-option:hover { background-color: #f5f5f5; }
         .shortcuts-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -158,21 +82,9 @@
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
             border-color: #cccccc;
         }
-        .shortcut-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            color: #000000;
-        }
-        .shortcut-title {
-            font-weight: 600;
-            color: #000000;
-            margin-bottom: 0.25rem;
-        }
-        .shortcut-desc {
-            font-size: 0.875rem;
-            color: #6b7280;
-        }
-        /* Floating WhatsApp Button */
+        .shortcut-icon { font-size: 2rem; margin-bottom: 0.5rem; color: #000000; }
+        .shortcut-title { font-weight: 600; color: #000000; margin-bottom: 0.25rem; }
+        .shortcut-desc { font-size: 0.875rem; color: #6b7280; }
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -190,18 +102,9 @@
             cursor: pointer;
             animation: float 3s ease-in-out infinite;
         }
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            background-color: #128C7E;
-        }
-        .whatsapp-float i {
-            font-size: 28px;
-            color: white;
-            transition: transform 0.3s ease;
-        }
-        .whatsapp-float:hover i {
-            transform: scale(1.1);
-        }
+        .whatsapp-float:hover { transform: scale(1.1); background-color: #128C7E; }
+        .whatsapp-float i { font-size: 28px; color: white; transition: transform 0.3s ease; }
+        .whatsapp-float:hover i { transform: scale(1.1); }
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
@@ -232,7 +135,6 @@
             justify-content: center;
             font-weight: bold;
         }
-        /* Checkout section styling */
         .checkout-section {
             background-color: #f9fafb;
             border-radius: 0.75rem;
@@ -257,52 +159,38 @@
             align-items: center;
             margin-bottom: 0.5rem;
         }
-        .checkout-package-name {
-            font-weight: 600;
-            color: #000000;
-        }
-        .checkout-package-price {
-            font-weight: 700;
-            color: #000000;
-        }
+        .checkout-package-name { font-weight: 600; color: #000000; }
+        .checkout-package-price { font-weight: 700; color: #000000; }
         .package-highlight {
             border-left: 4px solid #000000;
             background-color: #f5f5f5;
             padding: 1rem;
             border-radius: 0 0.5rem 0.5rem 0;
         }
-        .package-highlight h4 {
-            font-weight: 600;
-            color: #000000;
-            margin-bottom: 0.25rem;
-        }
-        .package-highlight p {
-            color: #000000;
-            font-weight: 500;
-        }
+        .package-highlight h4 { font-weight: 600; color: #000000; margin-bottom: 0.25rem; }
+        .package-highlight p { color: #000000; font-weight: 500; }
     </style>
 </head>
 <body class="font-sans bg-secondary text-gray-800">
+
+    <!-- HEADER -->
     <header class="sticky top-0 z-50 bg-white shadow-md">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-2">
                 <img src="logo.jpg" alt="EUPHORIC EVENTS Logo" class="h-12 w-12 rounded-full object-cover border-2 border-primary">
                 <h1 class="text-2xl font-bold text-darkPink font-dancing-script">EUPHORIC EVENTS</h1>
             </div>
-            
             <nav class="hidden md:flex space-x-8">
                 <button onclick="scrollToSection('home')" class="nav-link font-medium hover:text-accent">Home</button>
                 <button onclick="scrollToSection('services')" class="nav-link font-medium hover:text-accent">Services</button>
                 <button onclick="scrollToSection('about')" class="nav-link font-medium hover:text-accent">About</button>
             </nav>
-            
             <button class="md:hidden text-gray-600 focus:outline-none" id="mobile-menu-button">
                 <div class="w-6 h-0.5 bg-darkPink mb-1"></div>
                 <div class="w-6 h-0.5 bg-darkPink mb-1"></div>
                 <div class="w-6 h-0.5 bg-darkPink"></div>
             </button>
         </div>
-        
         <div class="md:hidden bg-white hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1">
                 <button onclick="scrollToSection('home')" class="block px-3 py-2 rounded-md text-base font-medium text-darkPink hover:text-accent">Home</button>
@@ -312,225 +200,140 @@
         </div>
     </header>
 
+    <!-- HERO -->
     <section id="home" class="hero-bg min-h-screen flex items-center">
         <div class="container mx-auto px-4 py-16 text-center">
             <div class="animate-fade-in">
                 <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">Creating Unforgettable Moments</h1>
                 <p class="text-xl md:text-2xl mb-8 text-white max-w-3xl mx-auto opacity-90">Professional Event Planning Services in Karachi, Pakistan</p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <button onclick="scrollToSection('services')" class="btn-primary bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-200 transition duration-300 shadow-lg">
-                        Our Services
-                    </button>
-                    <button onclick="scrollToSection('about')" class="btn-primary bg-transparent text-white border-2 border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition duration-300">
-                        Learn More
-                    </button>
+                    <button onclick="scrollToSection('services')" class="btn-primary bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-200 transition duration-300 shadow-lg">Our Services</button>
+                    <button onclick="scrollToSection('about')" class="btn-primary bg-transparent text-white border-2 border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition duration-300">Learn More</button>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- SERVICES -->
     <section id="services" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-darkPink mb-4">Our Event Services</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">We specialize in creating memorable events that exceed expectations</p>
             </div>
-            
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Walima -->
                 <div class="service-card bg-secondary rounded-xl overflow-hidden shadow-lg transition duration-300 flex flex-col">
                     <img src="walima.jpg" alt="Walima" class="w-full h-48 object-cover">
                     <div class="p-6 text-center flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Walima</h3>
                         <p class="text-gray-600 text-sm mb-4">Elegant wedding reception planning with attention to every detail</p>
                         <p class="text-lg font-bold text-black mt-auto mb-4">Starting From Rs. 1,850/person</p>
-                        <button onclick="openPackageModal('Walima')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                        <button onclick="openPackageModal('Walima', 'initial')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
                     </div>
                 </div>
-
+                <!-- Mehendi -->
                 <div class="service-card bg-secondary rounded-xl overflow-hidden shadow-lg transition duration-300 flex flex-col">
                     <img src="mehendi.jpg" alt="Mehendi" class="w-full h-48 object-cover">
                     <div class="p-6 text-center flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Mehendi</h3>
                         <p class="text-gray-600 text-sm mb-4">Traditional Mehendi ceremonies with beautiful decor and entertainment</p>
                         <p class="text-lg font-bold text-black mt-auto mb-4">Starting from Rs. 1,850/person</p>
-                        <button onclick="openPackageModal('Mehendi')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                        <button onclick="openPackageModal('Mehendi', 'initial')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
                     </div>
                 </div>
-
+                <!-- Birthdays -->
                 <div class="service-card bg-secondary rounded-xl overflow-hidden shadow-lg transition duration-300 flex flex-col">
                     <img src="birthday.jpg" alt="Birthdays" class="w-full h-48 object-cover">
                     <div class="p-6 text-center flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Birthdays</h3>
                         <p class="text-gray-600 text-sm mb-4">Unique birthday celebrations tailored to your preferences</p>
                         <p class="text-lg font-bold text-black mt-auto mb-4">Starting from Rs. 1,850/person</p>
-                        <button onclick="openPackageModal('Birthdays')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                        <button onclick="openPackageModal('Birthdays', 'initial')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
                     </div>
                 </div>
-
+                <!-- Photography -->
                 <div class="service-card bg-secondary rounded-xl overflow-hidden shadow-lg transition duration-300 flex flex-col">
                     <img src="photography.jpg" alt="Photography" class="w-full h-48 object-cover">
                     <div class="p-6 text-center flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Photography</h3>
                         <p class="text-gray-600 text-sm mb-4">Professional event photography capturing precious moments</p>
                         <p class="text-lg font-bold text-black mt-auto mb-4">Contact For Price</p>
-                        <button onclick="openBookingModal('Photography')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                        <button onclick="openBookingModalDirect('Photography')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
                     </div>
                 </div>
-
+                <!-- Fireworks -->
                 <div class="service-card bg-secondary rounded-xl overflow-hidden shadow-lg transition duration-300 flex flex-col">
                     <img src="fireworks.jpg" alt="Fireworks" class="w-full h-48 object-cover">
                     <div class="p-6 text-center flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Fireworks</h3>
                         <p class="text-gray-600 text-sm mb-4">Stunning fireworks displays for special grand occasions</p>
                         <p class="text-lg font-bold text-black mt-auto mb-4">Contact For Price</p>
-                        <button onclick="openBookingModal('Fireworks')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                        <button onclick="openBookingModalDirect('Fireworks')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- CATERING & SETUP -->
     <section id="catering-setup" class="py-16 bg-secondary">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-darkPink mb-4">CATERING AND SETUP</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">All packages include the following amenities for your event</p>
             </div>
-            
-            <!-- Prominent Note at Top of Section -->
             <div class="bg-yellow-100 border-l-4 border-yellow-500 p-4 mb-8 rounded">
                 <div class="flex">
-                    <div class="flex-shrink-0">
-                        <i class="fas fa-exclamation-triangle text-yellow-500 h-5 w-5"></i>
-                    </div>
-                    <div class="ml-3">
-                        <p class="text-sm text-yellow-700 font-semibold">
-                            Note: These amenities are included in all packages and are essential components of our event planning services. 
-                            Your satisfaction is our priority, and we ensure these elements enhance the overall experience of your event.
-                        </p>
-                    </div>
+                    <div class="flex-shrink-0"><i class="fas fa-exclamation-triangle text-yellow-500 h-5 w-5"></i></div>
+                    <div class="ml-3"><p class="text-sm text-yellow-700 font-semibold">Note: These amenities are included in all packages and are essential components of our event planning services.</p></div>
                 </div>
             </div>
-            
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white rounded-xl p-6 shadow-lg text-center transform transition duration-300 hover:scale-105">
-                    <div class="text-4xl mb-4 text-darkPink">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-darkPink">Dera with Carpet</h3>
-                    <p class="text-gray-600">Comfortable seating arrangements with high-quality carpets for your guests</p>
-                </div>
-                
-                <div class="bg-white rounded-xl p-6 shadow-lg text-center transform transition duration-300 hover:scale-105">
-                    <div class="text-4xl mb-4 text-darkPink">
-                        <i class="fas fa-couch"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-darkPink">Sofa Sitting</h3>
-                    <p class="text-gray-600">Elegant sofa arrangements for comfortable seating during your event</p>
-                </div>
-                
-                <div class="bg-white rounded-xl p-6 shadow-lg text-center transform transition duration-300 hover:scale-105">
-                    <div class="text-4xl mb-4 text-darkPink">
-                        <i class="fas fa-table"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-darkPink">Round Table Sitting</h3>
-                    <p class="text-gray-600">Round tables for intimate dining experiences and group discussions</p>
-                </div>
-                
-                <div class="bg-white rounded-xl p-6 shadow-lg text-center transform transition duration-300 hover:scale-105">
-                    <div class="text-4xl mb-4 text-darkPink">
-                        <i class="fas fa-utensils"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-darkPink">Standing Buffet</h3>
-                    <p class="text-gray-600">Enjoy delicious food from our standing buffet service with variety of options</p>
-                </div>
-                
-                <div class="bg-white rounded-xl p-6 shadow-lg text-center transform transition duration-300 hover:scale-105">
-                    <div class="text-4xl mb-4 text-darkPink">
-                        <i class="fas fa-plate-wheat"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-darkPink">Ceramic Cutlery & Crockery</h3>
-                    <p class="text-gray-600">Premium ceramic cutlery and crockery for an elegant dining experience</p>
-                </div>
-                
-                <div class="bg-white rounded-xl p-6 shadow-lg text-center transform transition duration-300 hover:scale-105">
-                    <div class="text-4xl mb-4 text-darkPink">
-                        <i class="fas fa-concierge-bell"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-darkPink">Waiter Services</h3>
-                    <p class="text-gray-600">Professional waiter service to ensure your guests are well attended throughout the event</p>
-                </div>
+                <div class="bg-white rounded-xl p-6 shadow-lg text-center transform transition duration-300 hover:scale-105"><div class="text-4xl mb-4 text-darkPink"><i class="fas fa-home"></i></div><h3 class="text-xl font-bold mb-2 text-darkPink">Dera with Carpet</h3><p class="text-gray-600">Comfortable seating with high-quality carpets</p></div>
+                <div class="bg-white rounded-xl p-6 shadow-lg text-center transform transition duration-300 hover:scale-105"><div class="text-4xl mb-4 text-darkPink"><i class="fas fa-couch"></i></div><h3 class="text-xl font-bold mb-2 text-darkPink">Sofa Sitting</h3><p class="text-gray-600">Elegant sofa arrangements for comfort</p></div>
+                <div class="bg-white rounded-xl p-6 shadow-lg text-center transform transition duration-300 hover:scale-105"><div class="text-4xl mb-4 text-darkPink"><i class="fas fa-table"></i></div><h3 class="text-xl font-bold mb-2 text-darkPink">Round Table Sitting</h3><p class="text-gray-600">Round tables for intimate dining</p></div>
+                <div class="bg-white rounded-xl p-6 shadow-lg text-center transform transition duration-300 hover:scale-105"><div class="text-4xl mb-4 text-darkPink"><i class="fas fa-utensils"></i></div><h3 class="text-xl font-bold mb-2 text-darkPink">Standing Buffet</h3><p class="text-gray-600">Delicious food from our standing buffet</p></div>
+                <div class="bg-white rounded-xl p-6 shadow-lg text-center transform transition duration-300 hover:scale-105"><div class="text-4xl mb-4 text-darkPink"><i class="fas fa-plate-wheat"></i></div><h3 class="text-xl font-bold mb-2 text-darkPink">Ceramic Cutlery & Crockery</h3><p class="text-gray-600">Premium ceramic for elegant dining</p></div>
+                <div class="bg-white rounded-xl p-6 shadow-lg text-center transform transition duration-300 hover:scale-105"><div class="text-4xl mb-4 text-darkPink"><i class="fas fa-concierge-bell"></i></div><h3 class="text-xl font-bold mb-2 text-darkPink">Waiter Services</h3><p class="text-gray-600">Professional waiter service throughout</p></div>
             </div>
         </div>
     </section>
 
+    <!-- ABOUT -->
     <section id="about" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-                    <img src="image.jpg" alt="Event Planning" class="rounded-xl shadow-lg w-full">
-                </div>
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8"><img src="image.jpg" alt="Event Planning" class="rounded-xl shadow-lg w-full"></div>
                 <div class="md:w-1/2">
                     <h2 class="text-3xl font-bold text-darkPink mb-6">About EUPHORIC EVENTS</h2>
-                    <p class="text-gray-600 mb-4">
-                        Established in the vibrant city of Karachi, Pakistan, EUPHORIC EVENTS is your premier destination for exceptional event planning services. With a passion for creating magical moments, we bring creativity and professionalism to every celebration.
-                    </p>
-                    <p class="text-gray-600 mb-4">
-                        Our team of experienced planners understands the importance of every detail that goes into making your special day unforgettable. Whether it's a grand wedding, a joyful birthday party, or a corporate event, we ensure perfection in every aspect.
-                    </p>
-                    
+                    <p class="text-gray-600 mb-4">Established in Karachi, Pakistan, EUPHORIC EVENTS is your premier destination for exceptional event planning. We bring creativity and professionalism to every celebration.</p>
+                    <p class="text-gray-600 mb-4">Our experienced planners ensure perfection in every detail, whether it's a grand wedding, joyful birthday, or corporate event.</p>
                     <div class="shortcuts-container">
-                        <div class="shortcut-item">
-                            <div class="shortcut-icon">
-                                <i class="fas fa-calendar-alt"></i>
-                            </div>
-                            <div class="shortcut-title">Wedding Planning</div>
-                            <div class="shortcut-desc">Complete wedding package</div>
-                        </div>
-                        <div class="shortcut-item">
-                            <div class="shortcut-icon">
-                                <i class="fas fa-birthday-cake"></i>
-                            </div>
-                            <div class="shortcut-title">Birthday Parties</div>
-                            <div class="shortcut-desc">Fun & memorable events</div>
-                        </div>
-                        <div class="shortcut-item">
-                            <div class="shortcut-icon">
-                                <i class="fas fa-microphone-alt"></i>
-                            </div>
-                            <div class="shortcut-title">Corporate Events</div>
-                            <div class="shortcut-desc">Professional celebrations</div>
-                        </div>
-                        <div class="shortcut-item">
-                            <div class="shortcut-icon">
-                                <i class="fas fa-camera"></i>
-                            </div>
-                            <div class="shortcut-title">Photo Coverage</div>
-                            <div class="shortcut-desc">Capturing your moments</div>
-                        </div>
+                        <div class="shortcut-item"><div class="shortcut-icon"><i class="fas fa-calendar-alt"></i></div><div class="shortcut-title">Wedding Planning</div><div class="shortcut-desc">Complete package</div></div>
+                        <div class="shortcut-item"><div class="shortcut-icon"><i class="fas fa-birthday-cake"></i></div><div class="shortcut-title">Birthday Parties</div><div class="shortcut-desc">Fun & memorable</div></div>
+                        <div class="shortcut-item"><div class="shortcut-icon"><i class="fas fa-microphone-alt"></i></div><div class="shortcut-title">Corporate Events</div><div class="shortcut-desc">Professional</div></div>
+                        <div class="shortcut-item"><div class="shortcut-icon"><i class="fas fa-camera"></i></div><div class="shortcut-title">Photo Coverage</div><div class="shortcut-desc">Capture moments</div></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="bg-black py-8">
         <div class="container mx-auto px-4 text-center">
             <h3 class="text-2xl font-bold text-white mb-2 font-dancing-script">EUPHORIC EVENTS</h3>
             <p class="text-white mb-4">Creating Unforgettable Moments in Karachi, Pakistan</p>
             <p class="text-white text-sm">Phone: +92 335 0356992</p>
-            <div class="mt-6 pt-6 border-t border-white border-opacity-30">
-                <p class="text-white text-sm">&copy; 2026 EUPHORIC EVENTS. All rights reserved.</p>
-            </div>
+            <div class="mt-6 pt-6 border-t border-white border-opacity-30"><p class="text-white text-sm">&copy; 2026 EUPHORIC EVENTS. All rights reserved.</p></div>
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <button onclick="openWhatsApp()" class="whatsapp-float" title="Chat with us on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </button>
+    <!-- FLOATING WHATSAPP -->
+    <button onclick="openWhatsApp()" class="whatsapp-float" title="Chat with us on WhatsApp"><i class="fab fa-whatsapp"></i></button>
 
-    <!-- Package Selection Modal -->
+    <!-- PACKAGE MODAL -->
     <div id="packageModal" class="fixed inset-0 z-50 hidden modal-overlay">
         <div class="absolute inset-0 bg-black bg-opacity-50"></div>
         <div class="absolute inset-0 flex items-center justify-center p-4">
@@ -538,79 +341,50 @@
                 <div class="p-6">
                     <div class="flex justify-between items-center mb-6">
                         <h2 class="text-2xl font-bold text-darkPink">Select Package</h2>
-                        <button onclick="closePackageModal()" class="text-gray-500 hover:text-gray-700 text-2xl close-btn">
-                            &times;
-                        </button>
+                        <button onclick="closePackageModal()" class="text-gray-500 hover:text-gray-700 text-2xl close-btn">&times;</button>
                     </div>
-                    
-                    <div id="packageContainer" class="mb-6">
-                        <!-- Packages will be loaded here -->
-                    </div>
-                    
+                    <div id="packageContainer" class="mb-6"></div>
                     <div class="mt-6 text-center">
-                        <button onclick="proceedToCheckout()" id="continueButton" class="bg-darkPink hover:bg-black text-white font-semibold py-3 px-6 rounded-lg transition duration-300 disabled:opacity-50" disabled>
-                            Continue to Checkout
-                        </button>
+                        <button onclick="proceedAfterPackageSelection()" id="continueButton" class="bg-darkPink hover:bg-black text-white font-semibold py-3 px-6 rounded-lg transition duration-300 disabled:opacity-50" disabled>Continue</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Booking Modal -->
-    <div id="bookingModal" class="fixed inset-0 z-50 hidden modal-overlay">
+    <!-- BOOKING / CHECKOUT MODAL -->
+    <div id="bookingModal" class="fixed inset-0 z-40 hidden modal-overlay">
         <div class="absolute inset-0 bg-black bg-opacity-50"></div>
         <div class="absolute inset-0 flex items-center justify-center p-4">
             <div class="modal-content bg-white rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
                 <div class="p-6">
                     <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-2xl font-bold text-darkPink">Book Event</h2>
-                        <button onclick="closeBookingModal()" class="text-gray-500 hover:text-gray-700 text-2xl close-btn">
-                            &times;
-                        </button>
+                        <h2 class="text-2xl font-bold text-darkPink">Checkout & Booking</h2>
+                        <button onclick="closeBookingModal()" class="text-gray-500 hover:text-gray-700 text-2xl close-btn">&times;</button>
                     </div>
-                    
                     <form id="bookingForm" class="space-y-4">
-                        <div>
-                            <label class="block text-gray-700 mb-2 font-medium">Name</label>
-                            <input type="text" id="customerName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-darkPink focus:border-transparent" placeholder="Enter your name" required>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-gray-700 mb-2 font-medium">Phone</label>
-                            <input type="tel" id="customerPhone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-darkPink focus:border-transparent" placeholder="Enter your phone number" required>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-gray-700 mb-2 font-medium">Address</label>
-                            <textarea id="customerAddress" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-darkPink focus:border-transparent" placeholder="Enter your address" rows="3" required></textarea>
-                        </div>
-                        
+                        <div><label class="block text-gray-700 mb-2 font-medium">Name</label><input type="text" id="customerName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-darkPink" placeholder="Enter your name" required></div>
+                        <div><label class="block text-gray-700 mb-2 font-medium">Phone</label><input type="tel" id="customerPhone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-darkPink" placeholder="Enter your phone number" required></div>
+                        <div><label class="block text-gray-700 mb-2 font-medium">Address</label><textarea id="customerAddress" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-darkPink" placeholder="Enter your address" rows="3" required></textarea></div>
                         <div class="border-t border-gray-200 pt-4">
-                            <h3 class="text-lg font-semibold text-darkPink mb-3">Selected Events</h3>
-                            <div id="selectedEventsContainer" class="space-y-3">
-                                <!-- Event items will be added here dynamically -->
-                            </div>
+                            <h3 class="text-lg font-semibold text-darkPink mb-3">Selected Events & Packages</h3>
+                            <div id="selectedEventsContainer" class="space-y-3"></div>
                             <div class="mt-3 relative event-dropdown">
                                 <button type="button" onclick="toggleEventDropdown()" class="flex items-center text-darkPink hover:text-black w-full justify-between">
-                                    <span>Add More Events</span>
+                                    <span>➕ Add More Events</span>
                                     <i class="fas fa-chevron-down ml-2"></i>
                                 </button>
                                 <div id="eventDropdown" class="dropdown-content">
-                                    <div class="dropdown-option" onclick="addEvent('Walima')">Walima</div>
-                                    <div class="dropdown-option" onclick="addEvent('Mehendi')">Mehendi</div>
-                                    <div class="dropdown-option" onclick="addEvent('Birthdays')">Birthdays</div>
-                                    <div class="dropdown-option" onclick="addEvent('Concerts')">Concerts</div>
-                                    <div class="dropdown-option" onclick="addEvent('Photography')">Photography</div>
-                                    <div class="dropdown-option" onclick="addEvent('Fireworks')">Fireworks</div>
+                                    <div class="dropdown-option" onclick="handleAddEvent('Walima')">Walima</div>
+                                    <div class="dropdown-option" onclick="handleAddEvent('Mehendi')">Mehendi</div>
+                                    <div class="dropdown-option" onclick="handleAddEvent('Birthdays')">Birthdays</div>
+                                    <div class="dropdown-option" onclick="handleAddEvent('Photography')">Photography</div>
+                                    <div class="dropdown-option" onclick="handleAddEvent('Fireworks')">Fireworks</div>
                                 </div>
                             </div>
                         </div>
-                        
                         <div class="pt-4">
-                            <button type="submit" class="w-full bg-darkPink hover:bg-black text-white font-semibold py-3 px-4 rounded-lg transition duration-300">
-                                Submit Booking
-                            </button>
+                            <button type="submit" class="w-full bg-darkPink hover:bg-black text-white font-semibold py-3 px-4 rounded-lg transition duration-300">Submit Booking</button>
                         </div>
                     </form>
                 </div>
@@ -619,265 +393,132 @@
     </div>
 
     <script>
-        function scrollToSection(sectionId) {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-        
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Package Modal functionality
-        const packageModal = document.getElementById('packageModal');
-        const packageContainer = document.getElementById('packageContainer');
-        const continueButton = document.getElementById('continueButton');
-        let selectedEvent = '';
-        let selectedPackage = null;
-        let currentlySelectedPackages = {};
-        let packageSelectionHistory = {};
-
-        // Package data
+        // ---------- DATA ----------
         const packagesData = {
             'Walima': [
-                {
-                    id: 'basic',
-                    name: 'Basic Package',
-                    price: 'Rs. 1,850/person',
-                    description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Chicken Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Gajar Halwa Special</li><li>3 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>',
-                    features: ['', '', '', '']
-                },
-                {
-                    id: 'standard',
-                    name: 'Standard Package',
-                    price: 'Rs. 2,850/person',
-                    description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Mutton Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Gajar Halwa Special</li><li>3 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>',
-                    features: ['', '', '', '', '']
-                },
-                {
-                    id: 'premium',
-                    name: 'Premium Package',
-                    price: 'Rs. 3,450/person',
-                    description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Mutton Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Chicken Malai Boti</li><li>Beef Kabab Live</li><li>Gajar / Petha Halwa Special</li><li>4 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>✓Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>',
-                    features: ['', '', '', '', '', '', '']
-                }
+                { id: 'basic', name: 'Basic Package', price: 'Rs. 1,850/person', description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Chicken Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Gajar Halwa Special</li><li>3 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>' },
+                { id: 'standard', name: 'Standard Package', price: 'Rs. 2,850/person', description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Mutton Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Gajar Halwa Special</li><li>3 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>' },
+                { id: 'premium', name: 'Premium Package', price: 'Rs. 3,450/person', description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Mutton Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Chicken Malai Boti</li><li>Beef Kabab Live</li><li>Gajar / Petha Halwa Special</li><li>4 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>' }
             ],
             'Mehendi': [
-                {
-                    id: 'basic',
-                    name: 'Basic Package',
-                    price: 'Rs. 1,850/person',
-                    description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Chicken Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Gajar Halwa Special</li><li>3 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>',
-                    features: ['', '', '','']
-                },
-                {
-                    id: 'standard',
-                    name: 'Standard Package',
-                    price: 'Rs. 2,850/person',
-                    description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Mutton Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Gajar Halwa Special</li><li>3 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>',
-                    features: ['', '', '', '', '']
-                },
-                {
-                    id: 'premium',
-                    name: 'Premium Package',
-                    price: 'Rs. 3,450/person',
-                    description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Mutton Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Chicken Malai Boti</li><li>Beef Kabab Live</li><li>Gajar / Petha Halwa Special</li><li>4 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>✓Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>',
-                    features: ['', '', '', '', '', '', '']
-                }
+                { id: 'basic', name: 'Basic Package', price: 'Rs. 1,850/person', description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Chicken Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Gajar Halwa Special</li><li>3 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>' },
+                { id: 'standard', name: 'Standard Package', price: 'Rs. 2,850/person', description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Mutton Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Gajar Halwa Special</li><li>3 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>' },
+                { id: 'premium', name: 'Premium Package', price: 'Rs. 3,450/person', description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Mutton Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Chicken Malai Boti</li><li>Beef Kabab Live</li><li>Gajar / Petha Halwa Special</li><li>4 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>' }
             ],
             'Birthdays': [
-                {
-                    id: 'basic',
-                    name: 'Basic Package',
-                    price: 'Rs. 1,850/person',
-                    description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Chicken Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Gajar Halwa Special</li><li>3 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>',
-                    features: ['', '', '', '']
-                },
-                {
-                    id: 'standard',
-                    name: 'Standard Package',
-                    price: 'Rs. 2,850/person',
-                    description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Mutton Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Gajar Halwa Special</li><li>3 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>',
-                    features: ['', '', '', '', '']
-                },
-                {
-                    id: 'premium',
-                    name: 'Premium Package',
-                    price: 'Rs. 3,450/person',
-                    description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Mutton Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Chicken Malai Boti</li><li>Beef Kabab Live</li><li>Gajar / Petha Halwa Special</li><li>4 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>✓Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>',
-                    features: ['', '', '', '', '', '', '']
-                }
+                { id: 'basic', name: 'Basic Package', price: 'Rs. 1,850/person', description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Chicken Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Gajar Halwa Special</li><li>3 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>' },
+                { id: 'standard', name: 'Standard Package', price: 'Rs. 2,850/person', description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Mutton Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Gajar Halwa Special</li><li>3 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>' },
+                { id: 'premium', name: 'Premium Package', price: 'Rs. 3,450/person', description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Mutton Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Chicken Malai Boti</li><li>Beef Kabab Live</li><li>Gajar / Petha Halwa Special</li><li>4 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>' }
             ]
         };
 
-        function openPackageModal(eventType) {
-            selectedEvent = eventType;
-            const packages = packagesData[eventType];
+        // ---------- STATE ----------
+        let selectedEvents = [];                 // { name, package }
+        let packageModalMode = 'initial';        // 'initial' or 'add'
+        let currentEventType = '';
+        let tempSelectedPackage = null;
+        let addEventCallback = null;
+
+        const packageModal = document.getElementById('packageModal');
+        const bookingModal = document.getElementById('bookingModal');
+        const packageContainer = document.getElementById('packageContainer');
+        const continueButton = document.getElementById('continueButton');
+        const selectedEventsContainer = document.getElementById('selectedEventsContainer');
+        const eventDropdown = document.getElementById('eventDropdown');
+
+        // ---------- UTILS ----------
+        function scrollToSection(id) { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); }
+        function openWhatsApp() { window.open('https://wa.me/923350356992?text=' + encodeURIComponent("Hello! I would like to know more about your event planning services."), '_blank'); }
+
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // ---------- PACKAGE MODAL ----------
+        function openPackageModal(eventType, mode = 'initial') {
+            currentEventType = eventType;
+            packageModalMode = mode;
+            tempSelectedPackage = null;
+            const packages = packagesData[eventType] || [];
             
             let html = `<h3 class="text-xl font-bold text-darkPink mb-4">${eventType} Packages</h3>`;
-            
             packages.forEach(pkg => {
-                html += `
-                    <div class="package-card mb-4 p-4 border rounded-lg" onclick="selectPackage('${pkg.id}', '${pkg.name}', '${pkg.price}')">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h4 class="font-bold text-lg mb-2">${pkg.name}</h4>
-                                <p class="text-darkPink package-price">${pkg.price}</p>
-                                <p class="text-gray-600 text-sm mt-2">${pkg.description}</p>
-                            </div>
-                            <i class="fas fa-check-circle text-green-500 text-2xl hidden" id="check-${pkg.id}"></i>
-                        </div>
-                        <ul class="mt-3 space-y-1">
-                            ${pkg.features.map(feature => `<li class="text-sm">${feature}</li>`).join('')}
-                        </ul>
-                    </div>
-                `;
+                html += `<div class="package-card mb-4 p-4 border rounded-lg" onclick="selectPackage('${pkg.id}', '${pkg.name}', '${pkg.price}')">
+                    <div class="flex justify-between items-start">
+                        <div><h4 class="font-bold text-lg mb-2">${pkg.name}</h4><p class="text-darkPink package-price">${pkg.price}</p>
+                        <div class="text-gray-600 text-sm mt-2">${pkg.description}</div></div>
+                        <i class="fas fa-check-circle text-green-500 text-2xl hidden" id="check-${pkg.id}"></i>
+                    </div></div>`;
             });
-            
             packageContainer.innerHTML = html;
             packageModal.classList.remove('hidden');
             document.body.classList.add('overflow-hidden');
+            continueButton.disabled = true;
         }
 
         function selectPackage(id, name, price) {
-            // Remove previously selected packages for this event type
-            if (currentlySelectedPackages[selectedEvent]) {
-                const prevId = currentlySelectedPackages[selectedEvent].id;
-                const prevCard = document.querySelector(`[onclick="selectPackage('${prevId}', '${currentlySelectedPackages[selectedEvent].name}', '${currentlySelectedPackages[selectedEvent].price}')"]`);
-                if (prevCard) {
-                    prevCard.classList.remove('selected');
-                    const checkIcon = prevCard.querySelector(`#check-${prevId}`);
-                    if (checkIcon) {
-                        checkIcon.classList.add('hidden');
-                    }
-                }
-            }
-            
-            // Add selected class to clicked card
-            const cards = document.querySelectorAll('.package-card');
-            let targetCard = null;
-            cards.forEach((card, index) => {
-                const cardName = card.querySelector('h4').textContent;
-                if (cardName === name) {
-                    targetCard = card;
-                }
-            });
-            
-            if (targetCard) {
-                targetCard.classList.add('selected');
-                const checkIcon = targetCard.querySelector(`#check-${id}`);
-                if (checkIcon) {
-                    checkIcon.classList.remove('hidden');
-                }
-            }
-            
-            selectedPackage = { id, name, price };
-            currentlySelectedPackages[selectedEvent] = { id, name, price };
+            document.querySelectorAll('.package-card').forEach(c => { c.classList.remove('selected'); c.querySelector('i')?.classList.add('hidden'); });
+            const selectedCard = Array.from(document.querySelectorAll('.package-card')).find(c => c.querySelector('h4')?.textContent === name);
+            if(selectedCard) { selectedCard.classList.add('selected'); selectedCard.querySelector('i')?.classList.remove('hidden'); }
+            tempSelectedPackage = { id, name, price };
             continueButton.disabled = false;
         }
 
         function closePackageModal() {
             packageModal.classList.add('hidden');
             document.body.classList.remove('overflow-hidden');
-            selectedPackage = null;
+            tempSelectedPackage = null;
             continueButton.disabled = true;
+            addEventCallback = null;
         }
 
-        function proceedToCheckout() {
-            if (!selectedPackage) {
-                alert('Please select a package');
-                return;
+        function proceedAfterPackageSelection() {
+            if (!tempSelectedPackage) { alert('Please select a package'); return; }
+            
+            if (packageModalMode === 'initial') {
+                selectedEvents = [{ name: currentEventType, package: tempSelectedPackage }];
+                closePackageModal();
+                openBookingModal();
+            } else if (packageModalMode === 'add' && addEventCallback) {
+                addEventCallback(currentEventType, tempSelectedPackage);
+                closePackageModal();
+                // The checkout modal is already open, just updated via callback
             }
-            
-            closePackageModal();
-            openBookingModal(selectedEvent, selectedPackage);
         }
 
-        // Booking modal functionality - updated to accept package info
-        let selectedEvents = [];
-        const bookingModal = document.getElementById('bookingModal');
-        const selectedEventsContainer = document.getElementById('selectedEventsContainer');
-        const eventDropdown = document.getElementById('eventDropdown');
-
-        function openBookingModal(event, pkg = null) {
-            // Initialize with first event
-            selectedEvents = [{name: event, package: pkg}];
+        // ---------- BOOKING / CHECKOUT ----------
+        function openBookingModal() {
             renderSelectedEvents();
-            
-            // Show modal
             bookingModal.classList.remove('hidden');
             document.body.classList.add('overflow-hidden');
-            
-            // Animate modal in
-            setTimeout(() => {
-                bookingModal.querySelector('.modal-content').classList.add('scale-100', 'opacity-100');
-            }, 10);
+        }
+
+        function openBookingModalDirect(eventName) {
+            selectedEvents = [{ name: eventName, package: null }];
+            openBookingModal();
         }
 
         function closeBookingModal() {
-            // Animate modal out
-            bookingModal.querySelector('.modal-content').classList.remove('scale-100', 'opacity-100');
-            
-            setTimeout(() => {
-                bookingModal.classList.add('hidden');
-                document.body.classList.remove('overflow-hidden');
-                resetBookingForm();
-            }, 300);
+            bookingModal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+            document.getElementById('bookingForm').reset();
         }
 
         function renderSelectedEvents() {
             selectedEventsContainer.innerHTML = '';
-            
-            // Render each event item in the checkout section with package information
-            selectedEvents.forEach((event, index) => {
-                const eventElement = document.createElement('div');
-                eventElement.className = 'checkout-event-item';
-                eventElement.innerHTML = `
+            selectedEvents.forEach((ev, idx) => {
+                const div = document.createElement('div');
+                div.className = 'checkout-event-item';
+                div.innerHTML = `
                     <div class="checkout-event-header">
-                        <div class="checkout-package-name">${event.name}</div>
-                        ${event.package ? `<div class="checkout-package-price">${event.package.price}</div>` : ''}
+                        <span class="checkout-package-name">${ev.name}</span>
+                        ${ev.package ? `<span class="checkout-package-price">${ev.package.price}</span>` : '<span class="text-gray-500">Price on request</span>'}
                     </div>
-                    ${event.package ? `<div class="text-sm text-gray-600">${event.package.name}</div>` : ''}
-                    <div class="flex justify-end mt-2">
-                        <button type="button" onclick="removeEvent(${index})" class="text-red-500 hover:text-red-700 text-sm">
-                            <i class="fas fa-trash mr-1"></i>Remove
-                        </button>
-                    </div>
+                    ${ev.package ? `<div class="text-sm text-gray-600">${ev.package.name}</div>` : ''}
+                    <div class="flex justify-end mt-2"><button type="button" onclick="removeEvent(${idx})" class="text-red-500 hover:text-red-700 text-sm"><i class="fas fa-trash mr-1"></i>Remove</button></div>
                 `;
-                selectedEventsContainer.appendChild(eventElement);
-                
-                // Add package highlight for the first event
-                if (index === 0 && event.package) {
-                    const packageHighlight = document.createElement('div');
-                    packageHighlight.className = 'package-highlight mt-4';
-                    packageHighlight.innerHTML = `
-                        <h4>${event.name} - Selected Package</h4>
-                        <p>${event.package.name} (${event.package.price})</p>
-                    `;
-                    selectedEventsContainer.appendChild(packageHighlight);
-                }
+                selectedEventsContainer.appendChild(div);
             });
-        }
-
-        function toggleEventDropdown() {
-            eventDropdown.classList.toggle('show');
-        }
-
-        function addEvent(eventName) {
-            // Check if event is already selected
-            const exists = selectedEvents.some(event => event.name === eventName);
-            if (!exists) {
-                selectedEvents.push({name: eventName});
-                renderSelectedEvents();
-            }
-            // Hide dropdown after selecting
-            eventDropdown.classList.remove('show');
         }
 
         function removeEvent(index) {
@@ -885,80 +526,65 @@
             renderSelectedEvents();
         }
 
-        function resetBookingForm() {
-            document.getElementById('bookingForm').reset();
-            selectedEvents = [];
-            renderSelectedEvents();
+        function toggleEventDropdown() {
+            eventDropdown.classList.toggle('show');
         }
 
-        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+        function handleAddEvent(eventName) {
+            eventDropdown.classList.remove('show');
+            // Events with packages open package modal; others added directly.
+            if (packagesData[eventName]) {
+                openPackageModal(eventName, 'add');
+                addEventCallback = (name, pkg) => {
+                    if (!selectedEvents.some(e => e.name === name)) {
+                        selectedEvents.push({ name, package: pkg });
+                    } else {
+                        alert(`${name} already added.`);
+                    }
+                    renderSelectedEvents();
+                };
+            } else {
+                // Photography / Fireworks (no package)
+                if (!selectedEvents.some(e => e.name === eventName)) {
+                    selectedEvents.push({ name: eventName, package: null });
+                } else {
+                    alert(`${eventName} already added.`);
+                }
+                renderSelectedEvents();
+            }
+        }
+
+        // Close dropdown on outside click
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.event-dropdown')) eventDropdown.classList.remove('show');
+        });
+
+        // Submit booking
+        document.getElementById('bookingForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            
-            // Validation
             const name = document.getElementById('customerName').value.trim();
             const phone = document.getElementById('customerPhone').value.trim();
             const address = document.getElementById('customerAddress').value.trim();
-            
-            if (!name || !phone || !address) {
-                alert('Please fill in all required fields.');
-                return;
-            }
-            
-            // Prepare booking data
-            const bookingData = {
-                name,
-                phone,
-                address,
-                events: selectedEvents,
-                timestamp: new Date().toISOString()
-            };
-            
-            // Save to localStorage
-            localStorage.setItem('bookingData', JSON.stringify(bookingData));
-            
-            // Show success
-            alert('Booking submitted successfully!');
-            console.log('Booking Data:', bookingData);
-            
-            // Reset form and close modal
+            if (!name || !phone || !address) { alert('Please fill all fields'); return; }
+            const booking = { name, phone, address, events: selectedEvents, timestamp: new Date().toISOString() };
+            localStorage.setItem('bookingData', JSON.stringify(booking));
+            alert('Booking submitted! Check console for details.');
+            console.log('Booking:', booking);
             closeBookingModal();
+            selectedEvents = [];
         });
 
-        // Close modal when clicking outside
-        packageModal.addEventListener('click', function(e) {
-            if (e.target === packageModal) {
-                closePackageModal();
+        // Modals close on overlay / Escape
+        window.addEventListener('click', (e) => {
+            if (e.target === packageModal) closePackageModal();
+            if (e.target === bookingModal) closeBookingModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (!packageModal.classList.contains('hidden')) closePackageModal();
+                if (!bookingModal.classList.contains('hidden')) closeBookingModal();
             }
         });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && !packageModal.classList.contains('hidden')) {
-                closePackageModal();
-            }
-        });
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!event.target.closest('.event-dropdown')) {
-                eventDropdown.classList.remove('show');
-            }
-        });
-
-        // Close package modal with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && !bookingModal.classList.contains('hidden')) {
-                closeBookingModal();
-            }
-        });
-
-        // WhatsApp button functionality
-        function openWhatsApp() {
-            const phoneNumber = "923350356992";
-            const message = "Hello! I would like to know more about your event planning services.";
-            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-            window.open(url, '_blank');
-        }
     </script>
 </body>
 </html>
