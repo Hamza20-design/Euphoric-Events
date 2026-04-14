@@ -211,59 +211,34 @@
             transition: all 0.3s ease;
             cursor: pointer;
             border: 2px solid transparent;
-            position: relative;
+        }
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
         }
         .package-card.selected {
             border-color: #000000;
             background-color: #f5f5f5;
         }
-        .package-card.selected::after {
-            content: '✓';
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #000000;
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .package-price {
+            font-size: 1.5rem;
             font-weight: bold;
         }
-        /* Checkout section styling */
-        .checkout-section {
-            background-color: #f9fafb;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        .features-list {
+            list-style-type: none;
+            padding-left: 0;
         }
-        .checkout-event-item {
-            background-color: white;
-            border-left: 4px solid #000000;
-            border-radius: 0 0.5rem 0.5rem 0;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            transition: all 0.2s ease;
-        }
-        .checkout-event-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .checkout-event-header {
+        .features-list li {
+            padding: 0.5rem 0;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
+            align-items: flex-start;
         }
-        .checkout-package-name {
-            font-weight: 600;
-            color: #000000;
-        }
-        .checkout-package-price {
-            font-weight: 700;
-            color: #000000;
+        .features-list li:before {
+            content: "✓";
+            color: #22c55e;
+            font-weight: bold;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
         }
     </style>
 </head>
@@ -353,6 +328,7 @@
                 </div>
 
                 <div class="service-card bg-secondary rounded-xl overflow-hidden shadow-lg transition duration-300 flex flex-col">
+                    
                     <img src="photography.jpg" alt="Photography" class="w-full h-48 object-cover">
                     <div class="p-6 text-center flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Photography</h3>
@@ -453,7 +429,7 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-                    <img src="image.jpg" alt="Event Planning" class="rounded-xl shadow-lg w-full">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3" alt="Event Planning" class="rounded-xl shadow-lg w-full">
                 </div>
                 <div class="md:w-1/2">
                     <h2 class="text-3xl font-bold text-darkPink mb-6">About EUPHORIC EVENTS</h2>
@@ -585,7 +561,7 @@
                                     <div class="dropdown-option" onclick="addEvent('Walima')">Walima</div>
                                     <div class="dropdown-option" onclick="addEvent('Mehendi')">Mehendi</div>
                                     <div class="dropdown-option" onclick="addEvent('Birthdays')">Birthdays</div>
-                                    
+                                    <div class="dropdown-option" onclick="addEvent('Concerts')">Concerts</div>
                                     <div class="dropdown-option" onclick="addEvent('Photography')">Photography</div>
                                     <div class="dropdown-option" onclick="addEvent('Fireworks')">Fireworks</div>
                                 </div>
@@ -739,21 +715,11 @@
             });
             
             // Add selected class to clicked card
-            const cards = document.querySelectorAll('.package-card');
-            let targetCard = null;
-            cards.forEach((card, index) => {
-                const cardName = card.querySelector('h4').textContent;
-                if (cardName === name) {
-                    targetCard = card;
-                }
-            });
-            
-            if (targetCard) {
-                targetCard.classList.add('selected');
-                const checkIcon = targetCard.querySelector(`#check-${id}`);
-                if (checkIcon) {
-                    checkIcon.classList.remove('hidden');
-                }
+            const card = document.querySelector(`.package-card:nth-child(${Array.from(document.querySelectorAll('.package-card')).findIndex(el => el.querySelector('h4').textContent === name) + 1})`);
+            card.classList.add('selected');
+            const checkIcon = card.querySelector(`#check-${id}`);
+            if (checkIcon) {
+                checkIcon.classList.remove('hidden');
             }
             
             selectedPackage = { id, name, price };
@@ -768,34 +734,39 @@
         }
 
         function proceedToCheckout() {
-    if (!selectedPackage) {
-        alert('Please select a package');
-        return;
-    }
-    
-    // Close the package selection modal
-    closePackageModal();
-    
-    // CRITICAL: We save the event AND the package details into our array
-    selectedEvents = [{
-        name: selectedEvent,
-        package: {
-            name: selectedPackage.name,
-            price: selectedPackage.price
+            if (!selectedPackage) {
+                alert('Please select a package');
+                return;
+            }
+            
+            closePackageModal();
+            openBookingModal(selectedEvent, selectedPackage);
         }
-    }];
-    
-    // Show the booking modal
-    bookingModal.classList.remove('hidden');
-    document.body.classList.add('overflow-hidden');
-    
-    // Refresh the list display
-    renderSelectedEvents();
-    
-    setTimeout(() => {
-        bookingModal.querySelector('.modal-content').classList.add('scale-100', 'opacity-100');
-    }, 10);
-}
+
+        // Booking modal functionality - updated to accept package info
+        let selectedEvents = [];
+        const bookingModal = document.getElementById('bookingModal');
+        const selectedEventsContainer = document.getElementById('selectedEventsContainer');
+        const eventDropdown = document.getElementById('eventDropdown');
+
+        function openBookingModal(event, pkg = null) {
+            // Initialize with first event
+            selectedEvents = [{name: event, package: pkg}];
+            renderSelectedEvents();
+            
+            // Show modal
+            bookingModal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+            
+            // Animate modal in
+            setTimeout(() => {
+                bookingModal.querySelector('.modal-content').classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeBookingModal() {
+            // Animate modal out
+            bookingModal.querySelector('.modal-content').classList.remove('scale-100', 'opacity-100');
             
             setTimeout(() => {
                 bookingModal.classList.add('hidden');
@@ -805,29 +776,21 @@
         }
 
         function renderSelectedEvents() {
-    selectedEventsContainer.innerHTML = '';
-    
-    selectedEvents.forEach((event, index) => {
-        const eventElement = document.createElement('div');
-        eventElement.className = 'checkout-event-item';
-        
-        // This is the "Why" — we check for the package object here:
-        const packageInfo = event.package 
-            ? `<div class="text-sm font-bold text-darkPink">${event.package.name} — ${event.package.price}</div>` 
-            : `<div class="text-sm italic text-gray-500">Custom selection</div>`;
-
-        eventElement.innerHTML = `
-            <div class="checkout-event-header">
-                <div class="checkout-package-name text-lg font-semibold">${event.name}</div>
-                <button type="button" onclick="removeEvent(${index})" class="text-red-500 hover:text-red-700">
-                    <i class="fas fa-trash"></i>
-                </button>
-            </div>
-            ${packageInfo} 
-        `;
-        selectedEventsContainer.appendChild(eventElement);
-    });
-}
+            selectedEventsContainer.innerHTML = '';
+            
+            selectedEvents.forEach((event, index) => {
+                const eventElement = document.createElement('div');
+                eventElement.className = 'event-item bg-gray-50 p-4 rounded-lg flex justify-between items-center';
+                eventElement.innerHTML = `
+                    <div class="font-medium">${event.name}</div>
+                    ${event.package ? `<div class="text-sm text-gray-600">${event.package.name}</div>` : ''}
+                    <button type="button" onclick="removeEvent(${index})" class="text-red-500 hover:text-red-700">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+                selectedEventsContainer.appendChild(eventElement);
+            });
+        }
 
         function toggleEventDropdown() {
             eventDropdown.classList.toggle('show');
