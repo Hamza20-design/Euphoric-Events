@@ -810,27 +810,29 @@
         }
 
         function renderSelectedEvents() {
-            selectedEventsContainer.innerHTML = '';
-            
-            // Render each event item in the checkout section with package information
-            selectedEvents.forEach((event, index) => {
-                const eventElement = document.createElement('div');
-                eventElement.className = 'checkout-event-item';
-                eventElement.innerHTML = `
-                    <div class="checkout-event-header">
-                        <div class="checkout-package-name">${event.name}</div>
-                        ${event.package ? `<div class="checkout-package-price">${event.package.price}</div>` : ''}
-                    </div>
-                    ${event.package ? `<div class="text-sm text-gray-600">${event.package.name}</div>` : ''}
-                    <div class="flex justify-end mt-2">
-                        <button type="button" onclick="removeEvent(${index})" class="text-red-500 hover:text-red-700 text-sm">
-                            <i class="fas fa-trash mr-1"></i>Remove
-                        </button>
-                    </div>
-                `;
-                selectedEventsContainer.appendChild(eventElement);
-            });
-        }
+    selectedEventsContainer.innerHTML = '';
+    
+    selectedEvents.forEach((event, index) => {
+        const eventElement = document.createElement('div');
+        eventElement.className = 'checkout-event-item';
+        
+        // This is the "Why" — we check for the package object here:
+        const packageInfo = event.package 
+            ? `<div class="text-sm font-bold text-darkPink">${event.package.name} — ${event.package.price}</div>` 
+            : `<div class="text-sm italic text-gray-500">Custom selection</div>`;
+
+        eventElement.innerHTML = `
+            <div class="checkout-event-header">
+                <div class="checkout-package-name text-lg font-semibold">${event.name}</div>
+                <button type="button" onclick="removeEvent(${index})" class="text-red-500 hover:text-red-700">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+            ${packageInfo} 
+        `;
+        selectedEventsContainer.appendChild(eventElement);
+    });
+}
 
         function toggleEventDropdown() {
             eventDropdown.classList.toggle('show');
