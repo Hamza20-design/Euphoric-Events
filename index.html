@@ -591,14 +591,15 @@
             };
 
             const { data, error } = await supabaseClient
-                .from('bookings')
-                .insert([bookingData]);
+    .from('bookings')
+    .insert([bookingData]);
 
-            if (error) {
-                console.error(error);
-                alert("❌ Booking failed");
-            } else {
-                alert("✅ Booking successful!");
+if (error) {
+    console.error("FULL ERROR:", error);
+    alert("❌ Booking failed: " + error.message);
+} else {
+    alert("✅ Booking successful!");
+}
 
                 // Reset UI
                 closeBookingModal();
