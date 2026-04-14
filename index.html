@@ -768,39 +768,34 @@
         }
 
         function proceedToCheckout() {
-            if (!selectedPackage) {
-                alert('Please select a package');
-                return;
-            }
-            
-            closePackageModal();
-            openBookingModal(selectedEvent, selectedPackage);
+    if (!selectedPackage) {
+        alert('Please select a package');
+        return;
+    }
+    
+    // Close the package selection modal
+    closePackageModal();
+    
+    // CRITICAL: We save the event AND the package details into our array
+    selectedEvents = [{
+        name: selectedEvent,
+        package: {
+            name: selectedPackage.name,
+            price: selectedPackage.price
         }
-
-        // Booking modal functionality - updated to accept package info
-        let selectedEvents = [];
-        const bookingModal = document.getElementById('bookingModal');
-        const selectedEventsContainer = document.getElementById('selectedEventsContainer');
-        const eventDropdown = document.getElementById('eventDropdown');
-
-        function openBookingModal(event, pkg = null) {
-            // Initialize with first event
-            selectedEvents = [{name: event, package: pkg}];
-            renderSelectedEvents();
-            
-            // Show modal
-            bookingModal.classList.remove('hidden');
-            document.body.classList.add('overflow-hidden');
-            
-            // Animate modal in
-            setTimeout(() => {
-                bookingModal.querySelector('.modal-content').classList.add('scale-100', 'opacity-100');
-            }, 10);
-        }
-
-        function closeBookingModal() {
-            // Animate modal out
-            bookingModal.querySelector('.modal-content').classList.remove('scale-100', 'opacity-100');
+    }];
+    
+    // Show the booking modal
+    bookingModal.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+    
+    // Refresh the list display
+    renderSelectedEvents();
+    
+    setTimeout(() => {
+        bookingModal.querySelector('.modal-content').classList.add('scale-100', 'opacity-100');
+    }, 10);
+}
             
             setTimeout(() => {
                 bookingModal.classList.add('hidden');
