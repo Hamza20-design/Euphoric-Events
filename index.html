@@ -112,31 +112,6 @@
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
-        .package-card {
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: 2px solid transparent;
-            position: relative;
-        }
-        .package-card.selected {
-            border-color: #000000;
-            background-color: #f5f5f5;
-        }
-        .package-card.selected::after {
-            content: '✓';
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #000000;
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
         .checkout-section {
             background-color: #f9fafb;
             border-radius: 0.75rem;
@@ -163,14 +138,6 @@
         }
         .checkout-package-name { font-weight: 600; color: #000000; }
         .checkout-package-price { font-weight: 700; color: #000000; }
-        .package-highlight {
-            border-left: 4px solid #000000;
-            background-color: #f5f5f5;
-            padding: 1rem;
-            border-radius: 0 0.5rem 0.5rem 0;
-        }
-        .package-highlight h4 { font-weight: 600; color: #000000; margin-bottom: 0.25rem; }
-        .package-highlight p { color: #000000; font-weight: 500; }
         
         /* Loading spinner */
         .spinner {
@@ -239,14 +206,14 @@
                 <p class="text-gray-600 max-w-2xl mx-auto">We specialize in creating memorable events that exceed expectations</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Walima -->
+                <!-- Engagement -->
                 <div class="service-card bg-secondary rounded-xl overflow-hidden shadow-lg transition duration-300 flex flex-col">
-                    <img src="walima.jpg" alt="Walima" class="w-full h-48 object-cover">
+                    <img src="engagement.jpg" alt="Engagement" class="w-full h-48 object-cover">
                     <div class="p-6 text-center flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Walima</h3>
-                        <p class="text-gray-600 text-sm mb-4">Elegant wedding reception planning with attention to every detail</p>
-                        <p class="text-lg font-bold text-black mt-auto mb-4">Starting From Rs. 1,850/person</p>
-                        <button onclick="openPackageModal('Walima', 'initial')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                        <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Engagement</h3>
+                        <p class="text-gray-600 text-sm mb-4">Beautiful engagement ceremonies with elegant decor and planning</p>
+                        <p class="text-lg font-bold text-black mt-auto mb-4">Contact For Price</p>
+                        <button onclick="openBookingModalDirect('Engagement')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
                     </div>
                 </div>
                 <!-- Mehendi -->
@@ -255,8 +222,28 @@
                     <div class="p-6 text-center flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Mehendi</h3>
                         <p class="text-gray-600 text-sm mb-4">Traditional Mehendi ceremonies with beautiful decor and entertainment</p>
-                        <p class="text-lg font-bold text-black mt-auto mb-4">Starting from Rs. 1,850/person</p>
-                        <button onclick="openPackageModal('Mehendi', 'initial')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                        <p class="text-lg font-bold text-black mt-auto mb-4">Contact For Price</p>
+                        <button onclick="openBookingModalDirect('Mehendi')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                    </div>
+                </div>
+                <!-- Barat -->
+                <div class="service-card bg-secondary rounded-xl overflow-hidden shadow-lg transition duration-300 flex flex-col">
+                    <img src="barat.jpg" alt="Barat" class="w-full h-48 object-cover">
+                    <div class="p-6 text-center flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Barat</h3>
+                        <p class="text-gray-600 text-sm mb-4">Grand wedding processions and reception planning</p>
+                        <p class="text-lg font-bold text-black mt-auto mb-4">Contact For Price</p>
+                        <button onclick="openBookingModalDirect('Barat')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                    </div>
+                </div>
+                <!-- Walima -->
+                <div class="service-card bg-secondary rounded-xl overflow-hidden shadow-lg transition duration-300 flex flex-col">
+                    <img src="walima.jpg" alt="Walima" class="w-full h-48 object-cover">
+                    <div class="p-6 text-center flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Walima</h3>
+                        <p class="text-gray-600 text-sm mb-4">Elegant wedding reception planning with attention to every detail</p>
+                        <p class="text-lg font-bold text-black mt-auto mb-4">Contact For Price</p>
+                        <button onclick="openBookingModalDirect('Walima')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
                     </div>
                 </div>
                 <!-- Birthdays -->
@@ -265,8 +252,8 @@
                     <div class="p-6 text-center flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Birthdays</h3>
                         <p class="text-gray-600 text-sm mb-4">Unique birthday celebrations tailored to your preferences</p>
-                        <p class="text-lg font-bold text-black mt-auto mb-4">Starting from Rs. 1,850/person</p>
-                        <button onclick="openPackageModal('Birthdays', 'initial')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
+                        <p class="text-lg font-bold text-black mt-auto mb-4">Contact For Price</p>
+                        <button onclick="openBookingModalDirect('Birthdays')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
                     </div>
                 </div>
                 <!-- Photography -->
@@ -279,16 +266,6 @@
                         <button onclick="openBookingModalDirect('Photography')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
                     </div>
                 </div>
-                <!-- Fireworks -->
-                <div class="service-card bg-secondary rounded-xl overflow-hidden shadow-lg transition duration-300 flex flex-col">
-                    <img src="fireworks.jpg" alt="Fireworks" class="w-full h-48 object-cover">
-                    <div class="p-6 text-center flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Fireworks</h3>
-                        <p class="text-gray-600 text-sm mb-4">Stunning fireworks displays for special grand occasions</p>
-                        <p class="text-lg font-bold text-black mt-auto mb-4">Contact For Price</p>
-                        <button onclick="openBookingModalDirect('Fireworks')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -298,13 +275,7 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-darkPink mb-4">CATERING AND SETUP</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">All packages include the following amenities for your event</p>
-            </div>
-            <div class="bg-yellow-100 border-l-4 border-yellow-500 p-4 mb-8 rounded">
-                <div class="flex">
-                    <div class="flex-shrink-0"><i class="fas fa-exclamation-triangle text-yellow-500 h-5 w-5"></i></div>
-                    <div class="ml-3"><p class="text-sm text-yellow-700 font-semibold">Note: These amenities are included in all packages and are essential components of our event planning services.</p></div>
-                </div>
+                <p class="text-gray-600 max-w-2xl mx-auto">All events include the following amenities</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-white rounded-xl p-6 shadow-lg text-center transform transition duration-300 hover:scale-105"><div class="text-4xl mb-4 text-darkPink"><i class="fas fa-home"></i></div><h3 class="text-xl font-bold mb-2 text-darkPink">Dera with Carpet</h3><p class="text-gray-600">Comfortable seating with high-quality carpets</p></div>
@@ -350,25 +321,6 @@
     <!-- FLOATING WHATSAPP -->
     <button onclick="openWhatsApp()" class="whatsapp-float" title="Chat with us on WhatsApp"><i class="fab fa-whatsapp"></i></button>
 
-    <!-- PACKAGE MODAL -->
-    <div id="packageModal" class="fixed inset-0 z-50 hidden modal-overlay">
-        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div class="absolute inset-0 flex items-center justify-center p-4">
-            <div class="modal-content bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto">
-                <div class="p-6">
-                    <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-2xl font-bold text-darkPink">Select Package</h2>
-                        <button onclick="closePackageModal()" class="text-gray-500 hover:text-gray-700 text-2xl close-btn">&times;</button>
-                    </div>
-                    <div id="packageContainer" class="mb-6"></div>
-                    <div class="mt-6 text-center">
-                        <button onclick="proceedAfterPackageSelection()" id="continueButton" class="bg-darkPink hover:bg-black text-white font-semibold py-3 px-6 rounded-lg transition duration-300 disabled:opacity-50" disabled>Continue</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- BOOKING / CHECKOUT MODAL -->
     <div id="bookingModal" class="fixed inset-0 z-40 hidden modal-overlay">
         <div class="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -384,7 +336,7 @@
                         <div><label class="block text-gray-700 mb-2 font-medium">Phone</label><input type="tel" id="customerPhone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-darkPink" placeholder="Enter your phone number" required></div>
                         <div><label class="block text-gray-700 mb-2 font-medium">Address</label><textarea id="customerAddress" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-darkPink" placeholder="Enter your address" rows="3" required></textarea></div>
                         <div class="border-t border-gray-200 pt-4">
-                            <h3 class="text-lg font-semibold text-darkPink mb-3">Selected Events & Packages</h3>
+                            <h3 class="text-lg font-semibold text-darkPink mb-3">Selected Events</h3>
                             <div id="selectedEventsContainer" class="space-y-3"></div>
                             <div class="mt-3 relative event-dropdown">
                                 <button type="button" onclick="toggleEventDropdown()" class="flex items-center text-darkPink hover:text-black w-full justify-between">
@@ -392,11 +344,12 @@
                                     <i class="fas fa-chevron-down ml-2"></i>
                                 </button>
                                 <div id="eventDropdown" class="dropdown-content">
-                                    <div class="dropdown-option" onclick="handleAddEvent('Walima')">Walima</div>
+                                    <div class="dropdown-option" onclick="handleAddEvent('Engagement')">Engagement</div>
                                     <div class="dropdown-option" onclick="handleAddEvent('Mehendi')">Mehendi</div>
+                                    <div class="dropdown-option" onclick="handleAddEvent('Barat')">Barat</div>
+                                    <div class="dropdown-option" onclick="handleAddEvent('Walima')">Walima</div>
                                     <div class="dropdown-option" onclick="handleAddEvent('Birthdays')">Birthdays</div>
                                     <div class="dropdown-option" onclick="handleAddEvent('Photography')">Photography</div>
-                                    <div class="dropdown-option" onclick="handleAddEvent('Fireworks')">Fireworks</div>
                                 </div>
                             </div>
                         </div>
@@ -414,87 +367,24 @@
     <script>
         // ==================== SUPABASE INITIALIZATION ====================
         // IMPORTANT: Replace these with your actual Supabase credentials!
-        // Get them from: Supabase Dashboard > Project Settings > API
-        const SUPABASE_URL = "https://oqdpaqipbqknhmpeypxy.supabase.co";  // ← REPLACE WITH YOUR URL
-        const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9xZHBhcWlwYnFrbmhtcGV5cHh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYxNTQwMDIsImV4cCI6MjA5MTczMDAwMn0.UAXefy7HDGRWGFL7zXgpP5rUhXeoqHx4YN2aYkhzeHw";                   // ← REPLACE WITH YOUR KEY
+        const SUPABASE_URL = "https://your-project-id.supabase.co";  // ← REPLACE
+        const SUPABASE_ANON_KEY = "your-anon-key";                   // ← REPLACE
         
         let supabaseClient;
         
         try {
             supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
             console.log("✅ Supabase client initialized");
-            
-            // Test connection
-            (async () => {
-                try {
-                    const { error } = await supabaseClient.from('bookings').select('id').limit(1);
-                    if (error) {
-                        if (error.message.includes('relation "bookings" does not exist')) {
-                            console.warn("⚠️ Table 'bookings' not found. Please create it in Supabase.");
-                            console.log("📝 Run this SQL in Supabase SQL Editor:");
-                            console.log(`
-CREATE TABLE IF NOT EXISTS bookings (
-    id SERIAL PRIMARY KEY,
-    name TEXT NOT NULL,
-    phone TEXT NOT NULL,
-    address TEXT NOT NULL,
-    events JSONB,
-    created_at TIMESTAMPTZ DEFAULT NOW()
-);
-
-ALTER TABLE bookings ENABLE ROW LEVEL SECURITY;
-
-CREATE POLICY "Allow anonymous inserts" ON bookings
-    FOR INSERT TO anon
-    WITH CHECK (true);
-                            `);
-                        } else {
-                            console.warn("⚠️ Database connection issue:", error.message);
-                        }
-                    } else {
-                        console.log("✅ Database connected successfully");
-                    }
-                } catch (err) {
-                    console.error("❌ Connection test failed:", err.message);
-                }
-            })();
         } catch (error) {
             console.error("❌ Failed to initialize Supabase:", error.message);
-            alert("Database connection failed. Please check your Supabase configuration.");
         }
         // ================================================================
 
-        // ---------- DATA ----------
-        const packagesData = {
-            'Walima': [
-                { id: 'basic', name: 'Basic Package', price: 'Rs. 1,850/person', description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Chicken Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Gajar Halwa Special</li><li>3 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>' },
-                { id: 'standard', name: 'Standard Package', price: 'Rs. 2,850/person', description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Mutton Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Gajar Halwa Special</li><li>3 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>' },
-                { id: 'premium', name: 'Premium Package', price: 'Rs. 3,450/person', description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Mutton Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Chicken Malai Boti</li><li>Beef Kabab Live</li><li>Gajar / Petha Halwa Special</li><li>4 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>' }
-            ],
-            'Mehendi': [
-                { id: 'basic', name: 'Basic Package', price: 'Rs. 1,850/person', description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Chicken Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Gajar Halwa Special</li><li>3 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>' },
-                { id: 'standard', name: 'Standard Package', price: 'Rs. 2,850/person', description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Mutton Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Gajar Halwa Special</li><li>3 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>' },
-                { id: 'premium', name: 'Premium Package', price: 'Rs. 3,450/person', description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Mutton Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Chicken Malai Boti</li><li>Beef Kabab Live</li><li>Gajar / Petha Halwa Special</li><li>4 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>' }
-            ],
-            'Birthdays': [
-                { id: 'basic', name: 'Basic Package', price: 'Rs. 1,850/person', description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Chicken Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Gajar Halwa Special</li><li>3 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>' },
-                { id: 'standard', name: 'Standard Package', price: 'Rs. 2,850/person', description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Mutton Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Gajar Halwa Special</li><li>3 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>' },
-                { id: 'premium', name: 'Premium Package', price: 'Rs. 3,450/person', description: '<ul class="list-disc pl-5 space-y-1"><li>Hot & Sour Soup</li><li>Fish Crackers</li><li>Mutton Qorma</li><li>Chicken Hyderabadi Biryani</li><li>Chicken Malai Boti</li><li>Beef Kabab Live</li><li>Gajar / Petha Halwa Special</li><li>4 Types of Salads</li><li>Mint Raita</li><li>Assorted Live Naan</li><li>Mineral Water 1.5 ml</li><li>Coke / Sprite 1.5 ml</li><li>Tea / Coffee Live Machine</li></ul>' }
-            ]
-        };
-
         // ---------- STATE ----------
-        let selectedEvents = [];                 // { name, package }
-        let packageModalMode = 'initial';        // 'initial' or 'add'
-        let currentEventType = '';
-        let tempSelectedPackage = null;
-        let addEventCallback = null;
+        let selectedEvents = [];                 // { name }
         let isSubmitting = false;
 
-        const packageModal = document.getElementById('packageModal');
         const bookingModal = document.getElementById('bookingModal');
-        const packageContainer = document.getElementById('packageContainer');
-        const continueButton = document.getElementById('continueButton');
         const selectedEventsContainer = document.getElementById('selectedEventsContainer');
         const eventDropdown = document.getElementById('eventDropdown');
         const submitBtn = document.getElementById('submitBookingBtn');
@@ -512,66 +402,6 @@ CREATE POLICY "Allow anonymous inserts" ON bookings
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
 
-        // ---------- PACKAGE MODAL ----------
-        function openPackageModal(eventType, mode = 'initial') {
-            currentEventType = eventType;
-            packageModalMode = mode;
-            tempSelectedPackage = null;
-            const packages = packagesData[eventType] || [];
-            
-            let html = `<h3 class="text-xl font-bold text-darkPink mb-4">${eventType} Packages</h3>`;
-            packages.forEach(pkg => {
-                html += `<div class="package-card mb-4 p-4 border rounded-lg" onclick="selectPackage('${pkg.id}', '${pkg.name}', '${pkg.price}')">
-                    <div class="flex justify-between items-start">
-                        <div><h4 class="font-bold text-lg mb-2">${pkg.name}</h4><p class="text-darkPink package-price">${pkg.price}</p>
-                        <div class="text-gray-600 text-sm mt-2">${pkg.description}</div></div>
-                        <i class="fas fa-check-circle text-green-500 text-2xl hidden" id="check-${pkg.id}"></i>
-                    </div></div>`;
-            });
-            packageContainer.innerHTML = html;
-            packageModal.classList.remove('hidden');
-            document.body.classList.add('overflow-hidden');
-            continueButton.disabled = true;
-        }
-
-        function selectPackage(id, name, price) {
-            document.querySelectorAll('.package-card').forEach(c => { 
-                c.classList.remove('selected'); 
-                c.querySelector('i')?.classList.add('hidden'); 
-            });
-            const selectedCard = Array.from(document.querySelectorAll('.package-card')).find(c => c.querySelector('h4')?.textContent === name);
-            if(selectedCard) { 
-                selectedCard.classList.add('selected'); 
-                selectedCard.querySelector('i')?.classList.remove('hidden'); 
-            }
-            tempSelectedPackage = { id, name, price };
-            continueButton.disabled = false;
-        }
-
-        function closePackageModal() {
-            packageModal.classList.add('hidden');
-            document.body.classList.remove('overflow-hidden');
-            tempSelectedPackage = null;
-            continueButton.disabled = true;
-            addEventCallback = null;
-        }
-
-        function proceedAfterPackageSelection() {
-            if (!tempSelectedPackage) { 
-                alert('Please select a package'); 
-                return; 
-            }
-            
-            if (packageModalMode === 'initial') {
-                selectedEvents = [{ name: currentEventType, package: tempSelectedPackage }];
-                closePackageModal();
-                openBookingModal();
-            } else if (packageModalMode === 'add' && addEventCallback) {
-                addEventCallback(currentEventType, tempSelectedPackage);
-                closePackageModal();
-            }
-        }
-
         // ---------- BOOKING / CHECKOUT ----------
         function openBookingModal() {
             renderSelectedEvents();
@@ -580,7 +410,7 @@ CREATE POLICY "Allow anonymous inserts" ON bookings
         }
 
         function openBookingModalDirect(eventName) {
-            selectedEvents = [{ name: eventName, package: null }];
+            selectedEvents = [{ name: eventName }];
             openBookingModal();
         }
 
@@ -598,9 +428,8 @@ CREATE POLICY "Allow anonymous inserts" ON bookings
                 div.innerHTML = `
                     <div class="checkout-event-header">
                         <span class="checkout-package-name">${ev.name}</span>
-                        ${ev.package ? `<span class="checkout-package-price">${ev.package.price}</span>` : '<span class="text-gray-500">Price on request</span>'}
+                        <span class="text-gray-500">Price on request</span>
                     </div>
-                    ${ev.package ? `<div class="text-sm text-gray-600">${ev.package.name}</div>` : ''}
                     <div class="flex justify-end mt-2"><button type="button" onclick="removeEvent(${idx})" class="text-red-500 hover:text-red-700 text-sm"><i class="fas fa-trash mr-1"></i>Remove</button></div>
                 `;
                 selectedEventsContainer.appendChild(div);
@@ -618,24 +447,12 @@ CREATE POLICY "Allow anonymous inserts" ON bookings
 
         function handleAddEvent(eventName) {
             eventDropdown.classList.remove('show');
-            if (packagesData[eventName]) {
-                openPackageModal(eventName, 'add');
-                addEventCallback = (name, pkg) => {
-                    if (!selectedEvents.some(e => e.name === name)) {
-                        selectedEvents.push({ name, package: pkg });
-                    } else {
-                        alert(`${name} already added.`);
-                    }
-                    renderSelectedEvents();
-                };
+            if (!selectedEvents.some(e => e.name === eventName)) {
+                selectedEvents.push({ name: eventName });
             } else {
-                if (!selectedEvents.some(e => e.name === eventName)) {
-                    selectedEvents.push({ name: eventName, package: null });
-                } else {
-                    alert(`${eventName} already added.`);
-                }
-                renderSelectedEvents();
+                alert(`${eventName} already added.`);
             }
+            renderSelectedEvents();
         }
 
         // Close dropdown on outside click
@@ -643,11 +460,10 @@ CREATE POLICY "Allow anonymous inserts" ON bookings
             if (!e.target.closest('.event-dropdown')) eventDropdown.classList.remove('show');
         });
 
-        // Submit booking - FIXED VERSION
+        // Submit booking
         document.getElementById('bookingForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            // Prevent double submission
             if (isSubmitting) return;
             
             const name = document.getElementById('customerName').value.trim();
@@ -664,15 +480,8 @@ CREATE POLICY "Allow anonymous inserts" ON bookings
                 return;
             }
 
-            // Check if Supabase is properly configured
-            if (SUPABASE_URL === "https://your-project-id.supabase.co" || SUPABASE_ANON_KEY === "your-anon-key") {
+            if (SUPABASE_URL.includes("your-project-id") || SUPABASE_ANON_KEY === "your-anon-key") {
                 alert('⚠️ Supabase is not configured. Please add your Supabase URL and anon key in the code.');
-                console.error('Supabase credentials not configured');
-                return;
-            }
-
-            if (!supabaseClient) {
-                alert('❌ Database connection not initialized');
                 return;
             }
 
@@ -689,8 +498,6 @@ CREATE POLICY "Allow anonymous inserts" ON bookings
                     created_at: new Date().toISOString()
                 };
 
-                console.log('Submitting booking:', bookingData);
-
                 const { data, error } = await supabaseClient
                     .from('bookings')
                     .insert([bookingData])
@@ -698,33 +505,26 @@ CREATE POLICY "Allow anonymous inserts" ON bookings
 
                 if (error) {
                     console.error('Supabase error:', error);
-                    
                     if (error.code === '42P01') {
-                        alert('❌ Database table not found. Please create the "bookings" table in Supabase.');
+                        alert('❌ Database table not found. Please create the "bookings" table.');
                     } else if (error.code === '42501') {
-                        alert('❌ Permission denied. Please enable Row Level Security with insert policy.');
+                        alert('❌ Permission denied. Enable RLS policy for INSERT.');
                     } else {
                         alert(`❌ Booking failed: ${error.message}`);
                     }
-                    
                     // Fallback to localStorage
-                    const fallbackBookings = JSON.parse(localStorage.getItem('fallbackBookings') || '[]');
-                    fallbackBookings.push({...bookingData, id: Date.now()});
-                    localStorage.setItem('fallbackBookings', JSON.stringify(fallbackBookings));
-                    console.log('Booking saved to localStorage as fallback');
-                    
+                    const fallback = JSON.parse(localStorage.getItem('fallbackBookings') || '[]');
+                    fallback.push({...bookingData, id: Date.now()});
+                    localStorage.setItem('fallbackBookings', JSON.stringify(fallback));
                 } else {
-                    console.log('✅ Booking successful:', data);
                     alert('✅ Booking successful! We will contact you soon.');
-                    
-                    // Reset UI
                     closeBookingModal();
                     selectedEvents = [];
                     document.getElementById('bookingForm').reset();
                 }
             } catch (error) {
                 console.error('Unexpected error:', error);
-                alert('❌ An unexpected error occurred. Please try again.');
+                alert('❌ An unexpected error occurred.');
             } finally {
                 isSubmitting = false;
                 submitBtn.innerHTML = 'Submit Booking';
@@ -734,15 +534,10 @@ CREATE POLICY "Allow anonymous inserts" ON bookings
 
         // Modals close on overlay / Escape
         window.addEventListener('click', (e) => {
-            if (e.target === packageModal) closePackageModal();
             if (e.target === bookingModal) closeBookingModal();
         });
-        
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                if (!packageModal.classList.contains('hidden')) closePackageModal();
-                if (!bookingModal.classList.contains('hidden')) closeBookingModal();
-            }
+            if (e.key === 'Escape' && !bookingModal.classList.contains('hidden')) closeBookingModal();
         });
     </script>
 </body>
