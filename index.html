@@ -153,6 +153,22 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* Prominent note box */
+        .included-note {
+            background: linear-gradient(135deg, #000000 0%, #333333 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.75rem;
+            margin: 1.5rem 0 0.5rem;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .included-note i {
+            margin-right: 8px;
+            color: #ffd700;
+        }
     </style>
 </head>
 <body class="font-sans bg-secondary text-gray-800">
@@ -211,8 +227,8 @@
                     <img src="engagement.jpg" alt="Engagement" class="w-full h-48 object-cover">
                     <div class="p-6 text-center flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Engagement</h3>
-                        <p class="text-gray-600 text-sm mb-4">Beautiful engagement ceremonies with elegant decor and planning</p>
-                        <p class="text-lg font-bold text-black mt-auto mb-4">Contact For Price</p>
+                        <p class="text-gray-600 text-sm mb-4">Beautiful engagement ceremonies with elegant decor and planning. <span class="font-semibold text-black">Venue, decor & photography included.</span></p>
+                        <p class="text-lg font-bold text-black mt-auto mb-4">Starting from Rs. 1,250/person</p>
                         <button onclick="openBookingModalDirect('Engagement')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
                     </div>
                 </div>
@@ -221,8 +237,8 @@
                     <img src="mehendi.jpg" alt="Mehendi" class="w-full h-48 object-cover">
                     <div class="p-6 text-center flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Mehendi</h3>
-                        <p class="text-gray-600 text-sm mb-4">Traditional Mehendi ceremonies with beautiful decor and entertainment</p>
-                        <p class="text-lg font-bold text-black mt-auto mb-4">Contact For Price</p>
+                        <p class="text-gray-600 text-sm mb-4">Traditional Mehendi ceremonies with beautiful decor and entertainment. <span class="font-semibold text-black">Venue, decor & photography included.</span></p>
+                        <p class="text-lg font-bold text-black mt-auto mb-4">Starting from Rs. 1,250/person</p>
                         <button onclick="openBookingModalDirect('Mehendi')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
                     </div>
                 </div>
@@ -231,8 +247,8 @@
                     <img src="barat.jpg" alt="Barat" class="w-full h-48 object-cover">
                     <div class="p-6 text-center flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Barat</h3>
-                        <p class="text-gray-600 text-sm mb-4">Grand wedding processions and reception planning</p>
-                        <p class="text-lg font-bold text-black mt-auto mb-4">Contact For Price</p>
+                        <p class="text-gray-600 text-sm mb-4">Grand wedding processions and reception planning. <span class="font-semibold text-black">Venue, decor & photography included.</span></p>
+                        <p class="text-lg font-bold text-black mt-auto mb-4">Starting from Rs. 1,250/person</p>
                         <button onclick="openBookingModalDirect('Barat')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
                     </div>
                 </div>
@@ -241,8 +257,8 @@
                     <img src="walima.jpg" alt="Walima" class="w-full h-48 object-cover">
                     <div class="p-6 text-center flex-grow flex flex-col">
                         <h3 class="text-xl font-bold mb-2 text-darkPink uppercase tracking-wide">Walima</h3>
-                        <p class="text-gray-600 text-sm mb-4">Elegant wedding reception planning with attention to every detail</p>
-                        <p class="text-lg font-bold text-black mt-auto mb-4">Contact For Price</p>
+                        <p class="text-gray-600 text-sm mb-4">Elegant wedding reception planning with attention to every detail. <span class="font-semibold text-black">Venue, decor & photography included.</span></p>
+                        <p class="text-lg font-bold text-black mt-auto mb-4">Starting from Rs. 1,250/person</p>
                         <button onclick="openBookingModalDirect('Walima')" class="bg-black text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition duration-300">Book Now</button>
                     </div>
                 </div>
@@ -275,9 +291,15 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-darkPink mb-4">CATERING AND SETUP</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">All events include the following amenities</p>
+                <p class="text-gray-600 max-w-2xl mx-auto">All wedding packages include these premium amenities</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Prominent inclusion note -->
+            <div class="included-note">
+                <i class="fas fa-check-circle"></i> ALL OF THE FOLLOWING ARE INCLUDED IN EVERY WEDDING PACKAGE <i class="fas fa-check-circle"></i>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
                 <div class="bg-white rounded-xl p-6 shadow-lg text-center transform transition duration-300 hover:scale-105"><div class="text-4xl mb-4 text-darkPink"><i class="fas fa-home"></i></div><h3 class="text-xl font-bold mb-2 text-darkPink">Dera with Carpet</h3><p class="text-gray-600">Comfortable seating with high-quality carpets</p></div>
                 <div class="bg-white rounded-xl p-6 shadow-lg text-center transform transition duration-300 hover:scale-105"><div class="text-4xl mb-4 text-darkPink"><i class="fas fa-couch"></i></div><h3 class="text-xl font-bold mb-2 text-darkPink">Sofa Sitting</h3><p class="text-gray-600">Elegant sofa arrangements for comfort</p></div>
                 <div class="bg-white rounded-xl p-6 shadow-lg text-center transform transition duration-300 hover:scale-105"><div class="text-4xl mb-4 text-darkPink"><i class="fas fa-table"></i></div><h3 class="text-xl font-bold mb-2 text-darkPink">Round Table Sitting</h3><p class="text-gray-600">Round tables for intimate dining</p></div>
